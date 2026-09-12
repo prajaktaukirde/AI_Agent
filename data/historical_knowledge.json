@@ -1,0 +1,413 @@
+{
+  "brand": "AppleSupport",
+  "voice_principles": [
+    "Warm, empathetic, and professional tone ('We'd love to help with this')",
+    "Always ask for device model and OS version when diagnosing technical bugs",
+    "Never request private credentials, passwords, or full credit card numbers in public tweets",
+    "Direct private account inquiries securely to DM (apple.co/DM or direct message link)",
+    "Provide concise, actionable step-by-step guidance followed by official Apple Support documentation links"
+  ],
+  "intents": {
+    "battery_hardware_performance": {
+      "description": "Issues related to battery life, drain after updates, device overheating, charging failure, slow device performance, or freezing.",
+      "auto_handle_criteria": "Device is intact; standard software diagnostics, background app refresh checks, battery health check, or standard restart recommended.",
+      "escalation_criteria": "Battery swelling/bulging, severe physical drop/liquid damage, device completely dead/unresponsive to hard reset, hardware repair quote needed.",
+      "official_url": "https://support.apple.com/iphone/repair/battery-replacement",
+      "sample_action": "Guide user to Settings > Battery > Battery Health and suggest updating to latest iOS release."
+    },
+    "os_software_update_bugs": {
+      "description": "Problems with iOS, iPadOS, macOS updates, update verification failures, boot loops, system app crashes, or UI bugs.",
+      "auto_handle_criteria": "Standard update failure solvable via storage check, force restart, or updating via Mac/PC Finder/iTunes.",
+      "escalation_criteria": "Device stuck on Apple logo boot loop after failed restore, critical kernel panic, data loss risk.",
+      "official_url": "https://support.apple.com/HT201435",
+      "sample_action": "Ask for exact device model & current iOS build, recommend force restart and checking available storage."
+    },
+    "icloud_appleid_security": {
+      "description": "Apple ID account lockouts, forgotten passwords, two-factor authentication issues, iCloud storage sync, activation lock.",
+      "auto_handle_criteria": "Self-service password reset via iforgot.apple.com or standard iCloud backup toggle.",
+      "escalation_criteria": "Account takeover / unauthorized login, lost trusted phone number during account recovery, activation lock proof of purchase verification.",
+      "official_url": "https://iforgot.apple.com",
+      "sample_action": "Direct user to iforgot.apple.com to reset password; never ask for password/2FA code directly in public tweet."
+    },
+    "billing_subscriptions_purchases": {
+      "description": "App Store charges, subscription management/cancellation, refund requests for apps/media, payment method declined.",
+      "auto_handle_criteria": "Standard refund filing via reportaproblem.apple.com or subscription cancellation in Settings > Apple ID > Subscriptions.",
+      "escalation_criteria": "Disputed fraudulent charges across family sharing, bank dispute initiated, repeated billing discrepancies requiring private account audit via DM.",
+      "official_url": "https://reportaproblem.apple.com",
+      "sample_action": "Guide user to reportaproblem.apple.com to view purchase history and request refund."
+    },
+    "connectivity_network_bluetooth": {
+      "description": "Wi-Fi dropouts, Bluetooth pairing failure (AirPods, car audio, Apple Watch), cellular 'No Service', Personal Hotspot.",
+      "auto_handle_criteria": "Reset Network Settings (Settings > General > Transfer or Reset iPhone > Reset Network Settings), carrier settings check, router restart.",
+      "escalation_criteria": "Hardware baseband modem failure (cellular greyed out with warning icon), SIM tray defect.",
+      "official_url": "https://support.apple.com/HT204051",
+      "sample_action": "Suggest toggling Airplane Mode, restarting device, and resetting network settings."
+    },
+    "audio_display_accessories": {
+      "description": "AirPods microphone/speaker static, cracked screen, dead pixels, touch unresponsiveness, Apple Pencil not charging.",
+      "auto_handle_criteria": "AirPods reset procedure, cleaning speaker mesh, software display true tone adjustment.",
+      "escalation_criteria": "Shattered screen glass, broken speaker membrane, physical accessory replacement under AppleCare+.",
+      "official_url": "https://support.apple.com/airpods/repair",
+      "sample_action": "Provide AirPods reset steps (hold setup button on case for 15s until amber/white flash)."
+    },
+    "human_escalation_dm_transfer": {
+      "description": "Customer explicitly asking for a human agent, expressing extreme frustration over unresolved multi-touch support cases, legal/safety threats.",
+      "auto_handle_criteria": "None \u2014 requires human empathy, senior advisor review, or private DM handling.",
+      "escalation_criteria": "Customer explicitly requests agent, mentions repeat failed interactions ('3rd time calling', 'nobody is helping'), legal threats, extreme sentiment.",
+      "official_url": "https://twitter.com/messages/compose?recipient_id=AppleSupport",
+      "sample_action": "De-escalate with empathy and immediately provide DM link for confidential human support."
+    }
+  },
+  "exemplars": [
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "Ok, I have a $4.99 student account w/Apple Music but just realized some days ago they've been charging me da 12.99 family plan @115858 fix it",
+      "resolution_reply": "Thanks for reaching out. For billing issues with Apple Music reach out to our iTunes Store Support: https://t.co/SDIe7UiyJN"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "Every time I look away from my phone and look back it drops like 8 percent, figure this battery thing the fuck out @115858",
+      "resolution_reply": "Thanks for reaching out about this behavior. Let\u2019s team up to get this addressed. To clarify, approximately how long have you been facing this behavior? Which iPhone are you using? Does this happen while using any particular app or feature?"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "It\u2019s showing it\u2019s connected and the battery is decreasing.",
+      "resolution_reply": "We are here for you. Let's take a look at this further for you. Reach out to us in DM. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "Anyone else having battery issues in IPhone? Degrading way to fast. @AppleSupport",
+      "resolution_reply": "Having a reliable iPhone is important, and we want you to enjoy using it without worrying about battery life. Which iPhone do you have, and what's the iOS version it's currently running? DM us with details here: https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "Apple can I have the option back for auto brightness, would be fab since my battery is atrocious anyway \ud83d\udc4d\ud83c\udffb@AppleSupport @115858",
+      "resolution_reply": "Auto-Brightness is still available, it's just moved to Settings &gt; General &gt; Accessibility &gt; Display Accommodations.Also, if you're having issues with your battery, meet us in DM with some details, tell us which country you're in, and we'll take a look with you. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "my mom can't open her ip7 since this morning. The battery is super drained. How do I fix this issue? #AppleSupport #Iphone7 #Iphone7Battery",
+      "resolution_reply": "We'd like to help her have the iPhone work as expected. DM us what iOS version the device is on. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "My battery went from 35 to 25 in two second, WTF @115858",
+      "resolution_reply": "Let\u2019s investigate this together. To start, let us know the device you\u2019re using, and we\u2019ll help out."
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "the iPhone X sucks. Don\u2019t give me a bunch of shit I don\u2019t need. Gimme a phone with a battery that lasts longer than 1/2 a day.  #EAD",
+      "resolution_reply": "We want to help with your iPhone's battery life. DM us which iOS version you have in Settings &gt; General &gt; About and we'll look into how we can improve the battery. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "all I want for Christmas is you to fix this glitchy OS on the iPhone. DO SOMETHING about it instead of fixing little things. It is slow, can\u2019t delete emails until 3 try and forward texts are hit and miss.  And yes I\u2019m running 11.1.2.",
+      "resolution_reply": "Hey, we can work together towards a solution. Please DM us the country you're located in and we'll work with you. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "battery_hardware_performance",
+      "customer_query": "i am facing huge lag in my iphone 7 and while using whatsapp via 3d touch is also ridiculous hope that yout team would support",
+      "resolution_reply": "We're happy to take a look. Are you only experiencing this with the WhatsApp application? Also, which iOS version is installed?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "Any bug fix for High Sierra coming soon? My laptop is crashing more in 2 days than ever Windows 95 did!",
+      "resolution_reply": "We'd like to help. Please meet us in DM and we'll take a look at this together. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "you are updating me out of your products. Each update makes my iphone5 worse not better. If it continues, I will switch to google",
+      "resolution_reply": "We'd love to help you with your iPhone 5. DM us more details about what precisely is going on, including the exact version of the operating system that it's running, and we'll team up to get them resolved. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "why does my iPhone 7 ever since it updated constantly freeze and have issues with all my apps #intentionallyslowingmyiphone",
+      "resolution_reply": "We can help out with your iPhone 7 performance on iOS 11. Do you know what version of the iOS is on the device?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "why isn\u2019t the weather\u2019s widget not working no more? (Even since iOS 11.1) https://t.co/XLQNCFXKDO",
+      "resolution_reply": "We want to look into this with you to be sure it's working as expected. What seems to be happening? Have you restarted?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "is this a bug for #iPhone7 #ios https://t.co/PammzKVCpR",
+      "resolution_reply": "We'd like to learn more about what's going on. DM us with details about which exact version of iOS you're using, and which country you're in, and we'll go from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "Thank you @115858 for forcing me to restore &amp; update my phone.I only lost all of my photos,contacts and messages in the process. Not to mention my camera doesn\u2019t work anymore \ud83d\ude43\ud83d\ude43 thnx",
+      "resolution_reply": "We can help out! Do you have a recent backup in iCloud or iTunes of the device?  Also, what issues are happening with the camera?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "the bug i encountered https://t.co/G6jXG91B5s",
+      "resolution_reply": "You're in the right place for help. May we get a description of the issue you're having?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "Anybody else on iOS 11 BT keeps skipping when you in the car\ud83e\udd14 FIX IT @AppleSupport",
+      "resolution_reply": "We'd be happy to help! Does it happen while using any other Bluetooth devices?"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "insupportable le bug du clavier toujours pas corrig\u00e9 sur iOS 11.1 ! C\u2019est une priorit\u00e9 d\u2019avoir un clavier fonctionnel non ?",
+      "resolution_reply": "We offer support via Twitter in English. Contact us for help in your preferred language here: https://t.co/IBIY3vMgPj"
+    },
+    {
+      "intent": "os_software_update_bugs",
+      "customer_query": "looks like am not only one having this issue! Stuck on verifying update, brand new phone today! Followed troubleshoot guide? https://t.co/WjTc4yDn8i",
+      "resolution_reply": "We've got your back! Have you tried restarting your iPhone since that started? Let us know in DM to continue. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "6 years later I still can\u2019t access Contacts on iCloud, what do we need to do to finally get this fixed, @AppleSupport? //cc @119462 https://t.co/EP9KWcig3M",
+      "resolution_reply": "You should be able to access your iCloud contacts on the web. DM us, and we'll see what we can do. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "I\u2019m hey @115858 do i have a problem here? So much for never getting hacked... https://t.co/rJl8T7y5Er",
+      "resolution_reply": "Thanks for reaching out and providing us this video. Let's look into this with you in DM here: https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "I got a message that said my account was locked. I just want to be sure it was sent from Apple.",
+      "resolution_reply": "Let's look into that. Send us a DM and we'll go from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "Hello there i need help with the use of an administartors name and password on my imac",
+      "resolution_reply": "Hi! We're happy to help. Join us in DM with the macOS version installed on your iMac and more details about what's going on. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "hey Apple support a picture of other people just showed up on my pictures. I do not know these people what so ever. And when my phone is rotation is locked it still turns",
+      "resolution_reply": "Let's look into this together. DM us which iPhone and iOS version you're experiencing these issues on, and we'll start from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "how can I delete my icloud account?",
+      "resolution_reply": "Thanks for getting in touch! We'd love to talk to you about this more. DM us more details about why you want to delete your Apple ID so we can be sure to get you to the right team. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "how can i reset security questions?i face this error:We don't have sufficient information to reset your security questions.",
+      "resolution_reply": "We'll need to refer you here for help with your Apple ID:  https://t.co/UJm15vmMM2"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "@123678 @AppleSupport oh dear @123678 still not co-oping with iCloud in ios11.1 really really poor show. #garageband",
+      "resolution_reply": "If you're still having troubles, be sure to follow up with our team that helps with GarageBand here:https://t.co/IBIY3vMgPj"
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "Apple Face ID isn\u2019t too secure on the iPhoneX . My non-identical twin just managed to access my phone! @8495 @AppleSupport @115858 #fail #apple #iphoneX #security #FaceID",
+      "resolution_reply": "We've got your DM's, and we look forward to working with you there."
+    },
+    {
+      "intent": "icloud_appleid_security",
+      "customer_query": "this comes up after I enter my correct password!! Why can I authorize my MacBook? https://t.co/FDICEHSOoL",
+      "resolution_reply": "We're happy to help out! Send us a DM with your macOS version from \uf8ff &gt; About This Mac with the link below. We'll join you there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "Installing iTunes now.",
+      "resolution_reply": "Great! Keep us updated."
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "I all of a sudden have a ton of duplicate films showing in my iTunes collection.",
+      "resolution_reply": "Our website here has some info that should help you: https://t.co/7a2drmJF0i DM us if you have any other questions about this. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "Hey, @115858, is your server down? I can't access the App Store",
+      "resolution_reply": "Hello. Check our system status here: https://t.co/7NVrDovSd8 Have you tried on another Wi-Fi network by chance?"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "Where did the tones tab go from my iTunes! I can\u2019t even download / get my made ringtones \ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f #annoyed!",
+      "resolution_reply": "Hey there. We'd be happy to clarify. Send us a DM so we can discuss this with you there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "how do I go about raising a high level complaint please? 4 senior techs couldn\u2019t help fix my problem, now my e mails are being unanswered, want a refund for a product that\u2019s not fit for purpose, have tried everything to fix, thanks.",
+      "resolution_reply": "We'd be happy to look into this with you. DM us using the link below and we'll go from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "Please give me some info on Apple Pay on ios11 on iPhone 7 India support. Thanks in advance.",
+      "resolution_reply": "Apple Pay is not currently supported in India. We keep a current list of countries that support Apple Pay here: https://t.co/tKY0Mal39U"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "How do you activate the emergency sos with the X because hitting the power button continuously just brush up my Apple Pay @AppleSupport",
+      "resolution_reply": "Thanks for reaching out to us. We'd be happy to help. This article shows how to activate an emergency call on your iPhone X: https://t.co/NOFjqtl0yV"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "No, thank you. If it involves spending 2 hours at a Genius Bar and spending money on repair, I\u2019ll pass. Thank you for your response.",
+      "resolution_reply": "Let us know if you change your mind, and we'll take a look at this with you."
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "I bought an iTunes gift card worth \u00a315 a week ago, and the email still hasn\u2019t come into my inbox to tell me the code. Helpppp",
+      "resolution_reply": "We're here for you. You'll need to contact our iTunes Store group for help with iTunes codes: https://t.co/SDIe7UiyJN"
+    },
+    {
+      "intent": "billing_subscriptions_purchases",
+      "customer_query": "do you have a problem in your servers ?I updated my Iphone 7, asked me to login to itunes, but it won't do it, a message: \"There was a problem connecting to the server...etc\" and another message: \"KVC synchronizeWithCompletionHandler Failed\"how to fix it please ?",
+      "resolution_reply": "We'd like to help any way we can. From our System Status link, it appears to be working fine: https://t.co/7NVrDovSd8Which exact iOS version number is installed on your iPhone 7?Any steps tried so far?"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "Oye @115858, muy bonitos tus nuevos emojis pero, \u00bfpara cuando el poder desactivar (REAL) el Wifi y el Bluetooth desde el CC?",
+      "resolution_reply": "We offer support via Twitter in English. Get help in Spanish here: https://t.co/IBIY3vMgPj or join https://t.co/OczyRx7IOs"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "SMS on. Cellular data off. Still will not deliver photo text messages",
+      "resolution_reply": "Let's take a closer look into this. Send us a DM to get started. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "when i try to airdrop pictures from my macbook air to iphone 7, the mac doesn\u2019t detect my phone. i made sure bluetooth/airdrop/etc was on.",
+      "resolution_reply": "We'd be happy to look into this with you. Can you provide us the macOS and iOS version you're using?"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "Why the HELL does my MacBook NEVER connect to my good ass internet please help me @115858",
+      "resolution_reply": "It's essential for your Mac to work as you expect, and we'll do all we can to help out. Would you mind letting us know the OS version installed on your Mac? From the Apple menu (\uf8ff), choose About This Mac. The version number appears beneath \u201cmacOS\u201d or \u201cOS X.\u201d"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "I have an iPhone that refuses to connect to WiFi even though it\u2019s inches away from the router! \ud83d\ude21\ud83d\ude21. 2 expensive 2 b this crap. @AppleSupport",
+      "resolution_reply": "We'd like to help out with your Wi-Fi. Follow the steps in this article and let us know how it goes: https://t.co/2NrOWKKcvY"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "No, it stays off for a short period of time. If I connect to a WiFi network in another time zone or travel to another time zone, it turns itself back on.",
+      "resolution_reply": "Got it, thanks. So that we can look into this further, DM the iOS version your iPhone is currently running. This info can be found under Settings &gt; General &gt; About. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "Thank you! My friend spotted this. I didn't realise it wouldn't automatically do the latest one. Thanks for replying-will do when get wifi\ud83d\ude00",
+      "resolution_reply": "Awesome! Let us know how it goes."
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "I don\u2019t want to have to check! Is there a way for the device to show the status of the personal hotspot, as it does when it is connected to a client, and as the network bars show status?",
+      "resolution_reply": "The only other way to see if Personal Hotspot is enabled or not is by using 3D touch on the network toggles in Control Center where you can quickly turn it on or off."
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "I\u2019m running 11.0.2, it seems to happen over both Wi-Fi and cellular",
+      "resolution_reply": "Got it! Let's follow up in DM. We'll take a deeper look there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "connectivity_network_bluetooth",
+      "customer_query": "yes i have been able to before but this happens quite a lot and yes i have both turned on on my macbook and they\u2019re connected to the same wifi and everything",
+      "resolution_reply": "We'd like to take a closer look at your AirDrop and Photos concerns with you. Reach out via DM using the link below. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "It freezes constantly having problems sending text messages I constantly turn it off and on because I can not call out and at times no sound",
+      "resolution_reply": "Got it. Please DM us and we will continue troubleshooting from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "I was half asleep and accidentally made an emergency call (I was trying to stop an alarm...). After hanging up, the screen keeps displaying \u201cNotification Canceled\u201d. No response to input. I can\u2019t restart iPhone X right now. Can switch apps using Siri. Pls help! @AppleSupport https://t.co/NShP7Mrpiq",
+      "resolution_reply": "We're happy to hear it seems to be resolved now after the restart. Be sure to let us know if you need any further help."
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "Like this. Open the Multitasking screen, swiping up on the WhatsApp app to close it; as seen in the video. https://t.co/yeOErcAbIz",
+      "resolution_reply": "Meet us in DM with a screenshot of what shows in Settings &gt; Notifications &gt; WhatsApp, please. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "@AppleSupport so I have an iPhone 6 and whenever I press the screen slightly harder then usual, it makes a clicking sound. Should I be worried at all?",
+      "resolution_reply": "It's understandable that you want to make sure your iPhone is in good shape, and we can help get to the bottom of this with you. This clicking noise you are hearing, is that only in one specifc spot on the screen? Are you using any kind of case with your iPhone?"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "Help @AppleSupport, why does the audio stop recording when I use FaceTime? Just tryna make thanksgiving memories pls https://t.co/Ol4byLxLwK",
+      "resolution_reply": "What you are seeing with FaceTime and screen recordings is expected. We welcome feedback on our apps and ways we can make them better, and you can leave that here: https://t.co/eTPVYVFyd8"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "And I mean switching between windows of the same application (while in full screen mode)",
+      "resolution_reply": "Thanks for providing us that information. Just to confirm you're on macOS 10.12.6, correct? Can you provide us which application you're using and the keys you're using to try to perform this action?"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "Yeah I restarted it and it still won\u2019t open just a black screen",
+      "resolution_reply": "Got it. Next, send us a DM and we'll take a closer look into this. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "why is the icon for certain apps in the @118936 different than the ones that dlonwload to my home screen?",
+      "resolution_reply": "Let\u2019s figure this out together. DM us the apps you\u2019re noticing this with, and we\u2019ll get started. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "All website. I can record with audio. The recording are playing well in Photos and the sound is ok. But when I import them in iMovie, the sound doesn\u2019t follow. Only if I was in Safari when I made the screen recording",
+      "resolution_reply": "Is this iMovie for iOS or for the Mac?"
+    },
+    {
+      "intent": "audio_display_accessories",
+      "customer_query": "Well guys ... i dropped my iPhone .. my iPhone w/ a case on it .. my iPhone that\u2019s supposedly shatter proof .. my iPhone 8 Plus That now has a cracked screen .. any explanations @115858 \ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f",
+      "resolution_reply": "We can help look into options to get this repaired. Reach out to us in DM and we will help. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "WTF @AppleSupport!?! After being on hold for over 25min each, both #AppleStore calls hang up while talking to representative. I am cursing your phone system; voice attendant is unphased. #ThirdTimeIsTheCharm?",
+      "resolution_reply": "This is not the experience we want you to have. Maybe we can help. Please meet us in DM to proceed. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "I can receive on my facetime - MacBook air. However if I try to vidcall the other person won't get my call. What can I do?",
+      "resolution_reply": "We're here for you. Check out this article for help with FaceTime: https://t.co/9TOn04wzxN"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "dont understand why i just called you to have my phone not working stilll.... thanks so much",
+      "resolution_reply": "Send us a DM. Let us know more details on the issue. We'll do our best to help. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "Tried that for many days already, it\u2019s useless",
+      "resolution_reply": "Thanks for letting us know. Because we don't handle orders via Twitter, we'd ask that you keep trying to reach our Online Store. They are best suited to assist you."
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "@AppleSupport I spent the evening at Grand Central due to a continued terrible and mysterious \"FaceID true depth camera disabled\" error and received no solution - help! https://t.co/B8OBCN0BZz",
+      "resolution_reply": "We'd be happy to look into this with you. Let us know via DM which version of iOS you're running on this iPhone X. We'll go from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "the first person whom i chatted who did all this disconnected from the chat. the second person was hesitant to give the ticket numberfinally got a ticket number 3251783",
+      "resolution_reply": "We'd like to investigate further with you. Send us a DM and we can go from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "you guys are terrible back in October you said you\u2019d send me something so I could send in my AirPods for repair since they didn\u2019t work when I bought them. You never sent them to me at fort sill. Thanks!",
+      "resolution_reply": "We are happy to help. Please DM us and we will continue from there. https://t.co/GDrqU22YpT"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "It just shows all message view, not where I can write to that person..",
+      "resolution_reply": "Do you know what version of the iOS is on the device?  If not, you can check under Settings &gt; General &gt; About &gt; Version."
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "I\u2019m in a family plan and I\u2019m the only person who gets this, I put in the correct info and it tells me it\u2019s invalid https://t.co/8wnwwgKQZB",
+      "resolution_reply": "The message that you are getting asks the Family Organizer to update their payment information.  Has he updated his information?"
+    },
+    {
+      "intent": "human_escalation_dm_transfer",
+      "customer_query": "My phone does not notify me of new messages whenever its unlocked and I really dont know why but I absolutely hate it! &amp; @AppleSupport needs to fix that NOW! Because that is highly unacceptable and I do not appreciate the inconvenience it causes me or my friends as a result of it",
+      "resolution_reply": "We'd be happy to look into this issue with you more in detail.  Reach out to us via DM and let us know what iPhone you're using and the iOS version that is installed and we'll continue from there. https://t.co/GDrqU22YpT"
+    }
+  ]
+}
