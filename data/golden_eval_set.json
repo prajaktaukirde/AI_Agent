@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "GOLD-001",
+    "customer_text": "@AppleSupport My iPhone 11 battery is draining 30% in less than an hour after the new update. Battery health says 89%. Is there a fix?",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Software-related battery drain after update; suitable for auto-handling with diagnostic and background refresh steps.",
+    "ground_truth_reply": "We understand battery drain can be frustrating. After an update, background indexing can temporarily affect battery life for 48 hours. Please check Settings > Battery to see which apps are consuming power and ensure all apps are updated.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_post_update_drain"
+  },
+  {
+    "id": "GOLD-002",
+    "customer_text": "@AppleSupport Help! My iPhone screen is popping off from the side and the back feels swollen and very hot while charging!",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Physical battery swelling represents a critical hardware safety hazard requiring immediate in-person service.",
+    "ground_truth_reply": "Your safety is our top priority. Please stop using and charging the device immediately. Send us a DM with your location so we can arrange an urgent reservation at your nearest Apple Authorized Service Provider: apple.co/DM",
+    "difficulty": "hard",
+    "edge_case_tag": "battery_swelling_safety_hazard"
+  },
+  {
+    "id": "GOLD-003",
+    "customer_text": "@AppleSupport My iPhone 13 Pro Max suddenly shut down at 20% battery and won't turn back on even when plugged into the charger for 2 hours.",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Device unresponsive; initial force restart and charger cable check can be safely auto-handled.",
+    "ground_truth_reply": "We'd love to help get your iPhone powered on. Try a force restart: quickly press and release Volume Up, quickly press and release Volume Down, then press and hold the Side button until the Apple logo appears. Check steps here: apple.co/ForceRestart",
+    "difficulty": "medium",
+    "edge_case_tag": "unresponsive_black_screen"
+  },
+  {
+    "id": "GOLD-004",
+    "customer_text": "@AppleSupport I dropped my iPhone on concrete and now the battery percentage is stuck at 1% and the phone restarts every 3 minutes. Can I send it for repair?",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Physical drop resulting in panic restart loop and hardware sensor disconnect; requires service reservation.",
+    "ground_truth_reply": "We're sorry to hear about the drop. Because this followed physical impact, hardware evaluation is needed. Please send us a DM so we can look at your repair options and warranty coverage: apple.co/DM",
+    "difficulty": "medium",
+    "edge_case_tag": "physical_impact_hardware_loop"
+  },
+  {
+    "id": "GOLD-005",
+    "customer_text": "@AppleSupport Why does my iPhone get uncomfortably warm whenever I use FaceTime for more than 10 minutes?",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Thermal behavior during high-bandwidth video calling; standard operating temperature guidance is sufficient.",
+    "ground_truth_reply": "Video streaming like FaceTime uses significant processing power, which can make your device warm. To help, avoid using heavy cases while video calling in warm rooms. Learn more about device temperature ranges: apple.co/Temp",
+    "difficulty": "easy",
+    "edge_case_tag": "thermal_management"
+  },
+  {
+    "id": "GOLD-006",
+    "customer_text": "@AppleSupport iOS 17.2 install keeps failing with 'Unable to Verify Update. An error occurred verifying iOS'. I have 25GB free space and good Wi-Fi.",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Update verification cache failure; resolved by deleting cached update file and redownloading.",
+    "ground_truth_reply": "We'd be glad to help with this update error. Go to Settings > General > iPhone Storage, find the downloaded iOS update file in the list, tap it, and select 'Delete Update'. Then restart your phone and try downloading again under Settings > General > Software Update.",
+    "difficulty": "medium",
+    "edge_case_tag": "verification_cache_bug"
+  },
+  {
+    "id": "GOLD-007",
+    "customer_text": "@AppleSupport After updating my Mac to macOS Sonoma, it is stuck in an infinite boot loop showing a circle with a slash (prohibitory sign). I have an urgent client deadline!",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Operating system corruption with prohibitory boot sign; high data loss risk and high urgency requiring live advisor.",
+    "ground_truth_reply": "We understand this is urgent before your deadline. A prohibitory symbol means macOS cannot find a valid boot system. Please join us in DM right away so our Mac technical advisors can guide you through macOS Recovery step-by-step: apple.co/DM",
+    "difficulty": "hard",
+    "edge_case_tag": "boot_loop_data_risk"
+  },
+  {
+    "id": "GOLD-008",
+    "customer_text": "@AppleSupport The default Phone app keeps crashing immediately when I tap on Recents. I'm on iOS 16.6 on iPhone 12.",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "App crash glitch on stock app; standard force close and restart troubleshooting.",
+    "ground_truth_reply": "We'd like to help get your Phone app working smoothly. Force close the Phone app by swiping up from the bottom to the center of your screen and flicking the app up. Then perform a restart of your iPhone. Let us know if the issue persists!",
+    "difficulty": "easy",
+    "edge_case_tag": "stock_app_crash"
+  },
+  {
+    "id": "GOLD-009",
+    "customer_text": "@AppleSupport My storage shows 60GB of 'System Data' taking up almost my entire 128GB phone. How do I clear this?",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Known iOS cache/system log accumulation issue; auto-handle with backup & sync advice.",
+    "ground_truth_reply": "System Data includes caches, logs, and Siri assets. Connecting your iPhone to a computer with iTunes or Finder and syncing can help clear accumulated system logs, or performing an iCloud backup and restart.",
+    "difficulty": "medium",
+    "edge_case_tag": "storage_system_data_bug"
+  },
+  {
+    "id": "GOLD-010",
+    "customer_text": "@AppleSupport I forgot my Apple ID password and my account is locked. How can I reset it?",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard self-service password reset request handled via iforgot.apple.com.",
+    "ground_truth_reply": "We can help you regain access to your Apple ID. You can reset your password directly by visiting https://iforgot.apple.com from any browser or using the Apple Support app on a family member's device.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_password_reset"
+  },
+  {
+    "id": "GOLD-011",
+    "customer_text": "@AppleSupport URGENT: Someone in another country just logged into my Apple ID and changed my trusted phone number and recovery email. I can't get in!",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Account compromise/hijack with altered trusted credentials; high security risk requiring human security advisor.",
+    "ground_truth_reply": "We take your account security very seriously. Please reach out to us immediately via DM so we can verify account ownership through our specialized security team: apple.co/DM or call our direct security line at 1-800-APL-CARE.",
+    "difficulty": "hard",
+    "edge_case_tag": "account_takeover_compromise"
+  },
+  {
+    "id": "GOLD-012",
+    "customer_text": "@AppleSupport I bought a used iPad from eBay and it is locked to the previous owner's iCloud (Activation Lock). Can you remove it for me?",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Activation lock on second-hand device requires original proof of purchase verification or seller release.",
+    "ground_truth_reply": "Activation Lock is designed to prevent unauthorized use. The previous owner must remove the device from their iCloud account at icloud.com/find. If you have valid original documentation from an authorized retailer, our team can review it via DM: apple.co/DM",
+    "difficulty": "medium",
+    "edge_case_tag": "activation_lock_used_device"
+  },
+  {
+    "id": "GOLD-013",
+    "customer_text": "@AppleSupport My photos are not syncing to iCloud from my Mac. It says 'Syncing Paused' at the bottom of the Photos app.",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Photos sync pause usually due to Low Power Mode, battery status, or cellular data settings.",
+    "ground_truth_reply": "We'd like to help get your photos syncing. Check if your Mac is connected to Wi-Fi and plugged into power. In the Photos app, scroll to the bottom of the Library tab and click 'Resume' next to Syncing Paused. Check your available iCloud storage as well.",
+    "difficulty": "easy",
+    "edge_case_tag": "icloud_photos_sync_pause"
+  },
+  {
+    "id": "GOLD-014",
+    "customer_text": "@AppleSupport My 7 year old accidentally bought $150 worth of in-app tokens in Roblox without my permission. How do I get a refund?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Accidental in-app purchase refund request; auto-handle with official reportaproblem.apple.com portal instructions.",
+    "ground_truth_reply": "We can help you request a refund for accidental in-app purchases. Please visit https://reportaproblem.apple.com, sign in with your Apple ID, select 'Request a refund', and choose 'A minor made purchases without permission'. You can also enable Screen Time purchase restrictions.",
+    "difficulty": "easy",
+    "edge_case_tag": "accidental_child_purchase"
+  },
+  {
+    "id": "GOLD-015",
+    "customer_text": "@AppleSupport Apple has been charging my credit card $9.99 every month for a subscription I canceled 6 months ago, and my bank says Apple is still pulling the funds. I want an immediate full refund!",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Disputed recurring billing discrepancy and refund demand across multiple billing cycles requiring private account lookup.",
+    "ground_truth_reply": "We want to ensure your billing is completely accurate. Please send us a DM with your Apple ID email and the specific charge dates so our billing team can review your transaction history securely: apple.co/DM",
+    "difficulty": "medium",
+    "edge_case_tag": "disputed_recurring_charge"
+  },
+  {
+    "id": "GOLD-016",
+    "customer_text": "@AppleSupport How do I cancel my Apple Music free trial before it renews and charges me next week?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard subscription cancellation guidance through iOS settings.",
+    "ground_truth_reply": "You can cancel your Apple Music trial easily: open Settings on your iPhone, tap your Name at the top, tap 'Subscriptions', select 'Apple Music', and tap 'Cancel Free Trial' or 'Cancel Subscription'. Here are the full steps: apple.co/CancelSub",
+    "difficulty": "easy",
+    "edge_case_tag": "subscription_cancellation"
+  },
+  {
+    "id": "GOLD-017",
+    "customer_text": "@AppleSupport My credit card was declined on the App Store with 'Your payment method was declined'. My bank says the card is active and fine.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "App Store payment decline; guide user to update payment billing address or try alternate method.",
+    "ground_truth_reply": "When a payment method is declined, ensure your billing name and address in Settings > [Your Name] > Payment & Shipping match your financial institution exactly. If an unpaid balance exists, updating or adding an alternate payment method will resolve it: apple.co/PaymentDecline",
+    "difficulty": "medium",
+    "edge_case_tag": "payment_method_declined"
+  },
+  {
+    "id": "GOLD-018",
+    "customer_text": "@AppleSupport My iPhone keeps disconnecting from my home Wi-Fi every 5 minutes while all my other devices stay connected.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Isolated Wi-Fi disconnect issue; solvable via Network Settings reset and Wi-Fi lease renewal.",
+    "ground_truth_reply": "We'd love to help stabilize your Wi-Fi connection. Try going to Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings. (Note: this resets saved Wi-Fi networks and passwords). Also try forgetting and reconnecting to your network: apple.co/WiFiHelp",
+    "difficulty": "easy",
+    "edge_case_tag": "wifi_intermittent_drop"
+  },
+  {
+    "id": "GOLD-019",
+    "customer_text": "@AppleSupport My iPhone 12 suddenly says 'No Service' and in Settings > About > Modem Firmware it is completely blank. Restarting and reseating SIM did not help.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Blank modem firmware indicates baseband hardware failure requiring diagnostic repair.",
+    "ground_truth_reply": "A blank modem firmware field indicates a hardware diagnostic is required. Please DM us your device IMEI/Serial number so we can check service program eligibility and book a repair appointment: apple.co/DM",
+    "difficulty": "hard",
+    "edge_case_tag": "baseband_hardware_failure"
+  },
+  {
+    "id": "GOLD-020",
+    "customer_text": "@AppleSupport My AirPods Pro won't pair with my iPhone 14. The light on the case just blinks white but never pops up on my screen.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard AirPods Bluetooth pairing glitch; solvable via case reset procedure.",
+    "ground_truth_reply": "Let's get your AirPods Pro connected. Put both AirPods in the charging case and close the lid for 30 seconds. Open the lid, then press and hold the setup button on the back of the case for about 15 seconds until the status light flashes amber, then white. Hold them near your iPhone with Bluetooth enabled.",
+    "difficulty": "easy",
+    "edge_case_tag": "airpods_pairing_popup"
+  },
+  {
+    "id": "GOLD-021",
+    "customer_text": "@AppleSupport Bluetooth in my car keeps stuttering audio when playing songs from Apple Music on iPhone 15.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Car Bluetooth audio buffer stutter; standard device re-pairing and car stereo profile deletion.",
+    "ground_truth_reply": "We can help smooth out your car audio. Try forgetting the car connection in Settings > Bluetooth, deleting your iPhone from your car's stereo system memory, and pairing them fresh. Also check if your vehicle's firmware has any manufacturer updates available.",
+    "difficulty": "medium",
+    "edge_case_tag": "car_bluetooth_stutter"
+  },
+  {
+    "id": "GOLD-022",
+    "customer_text": "@AppleSupport The left ear of my AirPods Pro is making a loud buzzing static sound whenever I turn on Active Noise Cancellation.",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Known AirPods Pro static issue; initial tip cleaning and firmware verification before service check.",
+    "ground_truth_reply": "We'd like to help with your AirPods Pro audio. Clean the mesh microphone ports on the outside with a dry cotton swab, as debris can affect ANC mics. Also ensure your firmware is up to date. If it continues, check your eligibility for the AirPods Pro Service Program: apple.co/AirPodsService",
+    "difficulty": "medium",
+    "edge_case_tag": "airpods_anc_static"
+  },
+  {
+    "id": "GOLD-023",
+    "customer_text": "@AppleSupport My iPad Pro screen has green vertical lines running down the display and touch is completely dead in the middle third. I didn't drop it.",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Display panel digitizer hardware failure; requires hardware repair reservation.",
+    "ground_truth_reply": "Lines across the display and unresponsiveness point to a hardware panel issue. Please send us a DM with your iPad serial number so we can look up your AppleCare coverage and set up an appointment at an Apple Store: apple.co/DM",
+    "difficulty": "medium",
+    "edge_case_tag": "display_digitizer_failure"
+  },
+  {
+    "id": "GOLD-024",
+    "customer_text": "@AppleSupport My Apple Pencil (2nd gen) is attached magnetically to my iPad Air, but it won't charge or show the battery widget.",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Pencil magnetic connection handshake glitch; standard unpair/restart/re-attach procedure.",
+    "ground_truth_reply": "Let's troubleshoot your Apple Pencil. Go to Settings > Bluetooth, tap the (i) icon next to your Apple Pencil, and choose 'Forget This Device'. Restart your iPad, then attach the Pencil firmly to the magnetic connector on the long side of your iPad to pair and charge.",
+    "difficulty": "easy",
+    "edge_case_tag": "apple_pencil_magnetic_charge"
+  },
+  {
+    "id": "GOLD-025",
+    "customer_text": "@AppleSupport My iPhone camera screen is pitch black when I open the Camera app, both front and back cameras. Flashlight says 'iPhone is too warm' even in cold room.",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Dual camera sensor disconnect and false thermal sensor warning; indicates hardware logic board fault.",
+    "ground_truth_reply": "When both cameras fail with false thermal alerts, hardware diagnostics are necessary. Please DM us so we can run remote diagnostics on your device and locate a nearby technician: apple.co/DM",
+    "difficulty": "hard",
+    "edge_case_tag": "camera_sensor_hardware_disconnect"
+  },
+  {
+    "id": "GOLD-026",
+    "customer_text": "@AppleSupport This is the 4th time I am tweeting you. Your agent in the store refused my warranty and was extremely rude. I want a manager to call me immediately or I am taking this to small claims court!",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Repeat unresolved complaint, store staff grievance, and legal escalation requiring senior supervisor management.",
+    "ground_truth_reply": "We sincerely apologize for this experience and want to make sure your concerns are addressed by leadership. Please send us a DM with your store visit details, case number, and preferred phone number so a senior advisor can contact you directly: apple.co/DM",
+    "difficulty": "hard",
+    "edge_case_tag": "angry_customer_legal_threat"
+  },
+  {
+    "id": "GOLD-027",
+    "customer_text": "@AppleSupport Stop giving me automated bot replies! I tried all your useless links and my iPad is still completely broken. Connect me to a real human person right now.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Explicit rejection of automated assistance and direct demand for human agent transfer.",
+    "ground_truth_reply": "We hear you, and we're stepping in right away. Please click here to send us a DM so a dedicated human support specialist can take over and solve this with you: apple.co/DM",
+    "difficulty": "easy",
+    "edge_case_tag": "explicit_human_demand"
+  },
+  {
+    "id": "GOLD-028",
+    "customer_text": "@AppleSupport I have an open case #10192847192 regarding a lost trade-in kit and FedEx says Apple received it 2 weeks ago but my credit hasn't applied. Can someone check the case status?",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Specific existing case inquiry and trade-in warehouse tracking requiring internal CRM access.",
+    "ground_truth_reply": "We'd be glad to check on case #10192847192 for you. For your security, please send us a DM with your Apple ID email so we can access the case records and investigate the trade-in status: apple.co/DM",
+    "difficulty": "medium",
+    "edge_case_tag": "crm_case_lookup"
+  },
+  {
+    "id": "GOLD-029",
+    "customer_text": "Ok, I have a $4.99 student account w/Apple Music but just realized some days ago they've been charging me da 12.99 family plan @115858 fix it",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for reaching out. For billing issues with Apple Music reach out to our iTunes Store Support: https://t.co/SDIe7UiyJN",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-030",
+    "customer_text": "Every time I look away from my phone and look back it drops like 8 percent, figure this battery thing the fuck out @115858",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Physical or environmental hardware damage requires physical inspection or replacement.",
+    "ground_truth_reply": "Thanks for reaching out about this behavior. Let\u2019s team up to get this addressed. To clarify, approximately how long have you been facing this behavior? Which iPhone are you using? Does this happen while using any particular app or feature?",
+    "difficulty": "medium",
+    "edge_case_tag": "hardware_damage"
+  },
+  {
+    "id": "GOLD-031",
+    "customer_text": "@AppleSupport It\u2019s showing it\u2019s connected and the battery is decreasing.",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We are here for you. Let's take a look at this further for you. Reach out to us in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-032",
+    "customer_text": "Anyone else having battery issues in IPhone? Degrading way to fast. @AppleSupport",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Having a reliable iPhone is important, and we want you to enjoy using it without worrying about battery life. Which iPhone do you have, and what's the iOS version it's currently running? DM us with details here: https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-033",
+    "customer_text": "Apple can I have the option back for auto brightness, would be fab since my battery is atrocious anyway \ud83d\udc4d\ud83c\udffb@AppleSupport @115858",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Auto-Brightness is still available, it's just moved to Settings &gt; General &gt; Accessibility &gt; Display Accommodations.Also, if you're having issues with your battery, meet us in DM with some details, tell us which country you're in, and we'll take a look with you. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-034",
+    "customer_text": "@AppleSupport my mom can't open her ip7 since this morning. The battery is super drained. How do I fix this issue? #AppleSupport #Iphone7 #Iphone7Battery",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd like to help her have the iPhone work as expected. DM us what iOS version the device is on. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-035",
+    "customer_text": "My battery went from 35 to 25 in two second, WTF @115858",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Let\u2019s investigate this together. To start, let us know the device you\u2019re using, and we\u2019ll help out.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-036",
+    "customer_text": "@115858 the iPhone X sucks. Don\u2019t give me a bunch of shit I don\u2019t need. Gimme a phone with a battery that lasts longer than 1/2 a day.  #EAD",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We want to help with your iPhone's battery life. DM us which iOS version you have in Settings &gt; General &gt; About and we'll look into how we can improve the battery. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-037",
+    "customer_text": "@115858 all I want for Christmas is you to fix this glitchy OS on the iPhone. DO SOMETHING about it instead of fixing little things. It is slow, can\u2019t delete emails until 3 try and forward texts are hit and miss.  And yes I\u2019m running 11.1.2.",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Hey, we can work together towards a solution. Please DM us the country you're located in and we'll work with you. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-038",
+    "customer_text": "@AppleSupport i am facing huge lag in my iphone 7 and while using whatsapp via 3d touch is also ridiculous hope that yout team would support",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're happy to take a look. Are you only experiencing this with the WhatsApp application? Also, which iOS version is installed?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-039",
+    "customer_text": "@AppleSupport baby, my battery will literally go from 100 to 50 in 10 minutes. it's the software not my iphone (6s)",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We're happy to look into this further with you. Please DM us. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-040",
+    "customer_text": "What\u2019s going with #iphone7plus batteries? Over the last few days my battery has been losing power, without being used much, at a rate I\u2019ve never seen? @115858 is something happening? #apple",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Let's look into that. Send us a DM and we'll go from there, https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-041",
+    "customer_text": "my phone is suuuper slow lately, wtf @115858 :-(",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We can help with iPhone performance.  Do you know what version of the iOS is on the device?  Also, are you seeing this issue with any specific apps or usage?  Do you do anything to restore function?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-042",
+    "customer_text": "Battery went from 80% to 62% in less than 10 mins and all I did was book a Grab. This is what the iOS11 does. Wtf @115858",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. That's not expected and we'd like to help. Can you tell us what type of device you're using? https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-043",
+    "customer_text": "@AppleSupport Like 2 times... i cant record u know. But look this lag\ud83d\ude2a\ud83e\udd2f",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We are here for you. Let's take a look at this further for you. Reach out to us in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-044",
+    "customer_text": "@AppleSupport @144367 @144365 My battery percentage isn\u2019t correct...help?",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Happy to! Can you provide us with more details about what's going on? Which device and iOS version are you using? Let us know in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-045",
+    "customer_text": "Dear @115858 why the fuck does my  iPhone 6 battery go from 100% to 4% in less than an hour sitting on my desk. Any chance of a new one?!",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd like to help. What iOS version are you currently running? You can find out by going to Settings &gt; General &gt; About",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-046",
+    "customer_text": "@AppleSupport the charging screening is now showing, now what?",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Let's give it some time to charge. It can sometimes take up to 20 minutes to come back on if it was completely depleted.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-047",
+    "customer_text": "@AppleSupport We have 4 iphones in my house and all experiencing super quick battery drain after installing ios11.0.1!! \ud83d\ude21\ud83d\ude21",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd like to look into this. We recently released iOS 11.0.2 which may address this issue, have you had a chance to update?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-048",
+    "customer_text": "@AppleSupport why is my battery life short? I updated to 11.1, my battery is poor. Wife didn\u2019t she likes her battery life",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Let\u2019s work together on this situation. To clarify, did this start after updating to iOS 11.1? Also, which device are you using?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-049",
+    "customer_text": "@AppleSupport iPad has always done the 'not charging' thing from new. had ipad re 1yr now. it does need a software download.",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Let's go ahead and create a backup. Then, we'll complete the update as well. Click here for those steps: https://t.co/80YRnjDFDk",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-050",
+    "customer_text": "@115858 @116333 Really sad to see there is no fix available from Apple,my iPhone feels like a device from Stone Age, so slow and battery is draining so fast",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We would like to help get your iPhone working as expected. Please let us know which iOS version you have to get started. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-051",
+    "customer_text": "@AppleSupport Hi yes I am noticing this issue within 24 hours of updating my iPhone. If I open one webpage through Facebook or twitter, I start feeling the heat. Battery life has cut to half.",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks for that info. Let's take things to DM from here for our next steps. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-052",
+    "customer_text": "HEY @115858 FIX THE DANG BATTERY PROBLEM ON THE IPHONE 7S!!!!",
+    "ground_truth_intent": "battery_hardware_performance",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks for reaching out again! We'd love to continue working with you on your iPhone's battery. Join us back in DM and we'll start up where we left off. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-053",
+    "customer_text": "@115858 Any bug fix for High Sierra coming soon? My laptop is crashing more in 2 days than ever Windows 95 did!",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd like to help. Please meet us in DM and we'll take a look at this together. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-054",
+    "customer_text": "@AppleSupport you are updating me out of your products. Each update makes my iphone5 worse not better. If it continues, I will switch to google",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help you with your iPhone 5. DM us more details about what precisely is going on, including the exact version of the operating system that it's running, and we'll team up to get them resolved. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-055",
+    "customer_text": "@115858 why does my iPhone 7 ever since it updated constantly freeze and have issues with all my apps #intentionallyslowingmyiphone",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We can help out with your iPhone 7 performance on iOS 11. Do you know what version of the iOS is on the device?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-056",
+    "customer_text": "@AppleSupport why isn\u2019t the weather\u2019s widget not working no more? (Even since iOS 11.1) https://t.co/XLQNCFXKDO",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We want to look into this with you to be sure it's working as expected. What seems to be happening? Have you restarted?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-057",
+    "customer_text": "@115858 is this a bug for #iPhone7 #ios https://t.co/PammzKVCpR",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd like to learn more about what's going on. DM us with details about which exact version of iOS you're using, and which country you're in, and we'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-058",
+    "customer_text": "Thank you @115858 for forcing me to restore &amp; update my phone.I only lost all of my photos,contacts and messages in the process. Not to mention my camera doesn\u2019t work anymore \ud83d\ude43\ud83d\ude43 thnx",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We can help out! Do you have a recent backup in iCloud or iTunes of the device?  Also, what issues are happening with the camera?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-059",
+    "customer_text": "@applesupport the bug i encountered https://t.co/G6jXG91B5s",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. You're in the right place for help. May we get a description of the issue you're having?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-060",
+    "customer_text": "Anybody else on iOS 11 BT keeps skipping when you in the car\ud83e\udd14 FIX IT @AppleSupport",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd be happy to help! Does it happen while using any other Bluetooth devices?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-061",
+    "customer_text": "@AppleSupport insupportable le bug du clavier toujours pas corrig\u00e9 sur iOS 11.1 ! C\u2019est une priorit\u00e9 d\u2019avoir un clavier fonctionnel non ?",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Contact us for help in your preferred language here: https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-062",
+    "customer_text": "@AppleSupport looks like am not only one having this issue! Stuck on verifying update, brand new phone today! Followed troubleshoot guide? https://t.co/WjTc4yDn8i",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We've got your back! Have you tried restarting your iPhone since that started? Let us know in DM to continue. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-063",
+    "customer_text": "Hey @AppleSupport, little weather app bug https://t.co/GPVTnW2d8x",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to look into this with you. Which version of the operating system is your iPhone running? Does this happen with any other city or zip code? Have you restarted your iPhone since this started?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-064",
+    "customer_text": "@AppleSupport I would see it in both.  I just got the update notification yesterday.  Should be ok now.",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Great. If you ever need us in the future, feel free to reach out. We're here to help.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-065",
+    "customer_text": "@AppleSupport Issue started when I updated my phone to new ios 11 it sucks its not with any specific app but its with everything if use keypad to dial a p",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks for the update. Reach us via DM to gather more information. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-066",
+    "customer_text": "Guten Morgen zusammen seit dem Update von @115858 iOS 11.1.2 gibt es erheblich Akku Laufzeit Einbu\u00dfen was sehr schade ist \ud83d\ude30\ud83d\ude30",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Contact us for help in your preferred language here: https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-067",
+    "customer_text": "Downloaded the @115858 iPhone update.  Thought maybe it would correct my phone crashing problem.  Nope. @AppleSupport iPhone still crashing",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We can look into this further with you. Send us a DM if you'd like to get started: https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-068",
+    "customer_text": "@AppleSupport 7 plus &amp; ios 11",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Have you had a chance to update to the latest 11.1? If not, go ahead and give that a try first. Let us know how it works.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-069",
+    "customer_text": "My phone just gonna keep going black and white till I update ?!?! @AppleSupport",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We\u2019re here to help. Let\u2019s team up in DM and we\u2019ll do our best to assist you. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-070",
+    "customer_text": "Anyone else notice the new #IOS roll out means you can\u2019t control the volume of your alarm? Well done @AppleSupport @115858 your R&amp;D sucks!",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. This is not to be expected. We want to help. Please tell us a bit more about this via DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-071",
+    "customer_text": "@AppleSupport Update: still resets phone even after removing and reinstalling.",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We appreciate the update. Just to be sure that we're on the same page, is your iPhone restarting while you're using any other apps? Please send us a DM with the results. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-072",
+    "customer_text": "G\u00fcncellemeyin art\u0131k \u015fu iOS u @AppleSupport Touch ID a\u00e7\u0131lm\u0131yor ve ayr\u0131ca bildirimi a\u00e7may\u0131 neden bu kadar zorla\u015ft\u0131rd\u0131n\u0131z.",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Contact us for help in your preferred language here: https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-073",
+    "customer_text": "@AppleSupport Ya with pandora, instagram, Snapchat or Netflix it will just crash",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Head to the App Store &amp; make sure those apps are up-to-date. Also, what\u2019s the exact version of iOS that you have installed?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-074",
+    "customer_text": "@AppleSupport iPhone 6s, iOS 11.0",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Thank you for that information.  Split View in iOS is only available for iPad models: https://t.co/WTnoQ22YPG",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-075",
+    "customer_text": "@AppleSupport ,my iphone 6s+ , got freeze daily  and apps get unresponsive ..it has been happing since installed ios 11",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We are here for you!  Which specific iOS version are you currently using?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-076",
+    "customer_text": "@AppleSupport I am using iOs 11.1.2 in my iphone 6s.. as soon as put the apps in update, they get pending to get updated and later on failureof update notice pops up",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We understand how important it is to keep your apps up to date. So we're clear, are you trying to update all or one at a time? Are you able to update using cellular data?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-077",
+    "customer_text": "@AppleSupport when are u releasing fix for #iOS #1103 ? it sucks",
+    "ground_truth_intent": "os_software_update_bugs",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Hi. We've released an update to 11.1. Please use these steps to update: https://t.co/80YRnjVguS https://t.co/GDrqU2kzhr",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-078",
+    "customer_text": "6 years later I still can\u2019t access Contacts on iCloud, what do we need to do to finally get this fixed, @AppleSupport? //cc @119462 https://t.co/EP9KWcig3M",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. You should be able to access your iCloud contacts on the web. DM us, and we'll see what we can do. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-079",
+    "customer_text": "I\u2019m hey @115858 do i have a problem here? So much for never getting hacked... https://t.co/rJl8T7y5Er",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Security threat or unauthorized access requires authenticated account verification.",
+    "ground_truth_reply": "Thanks for reaching out and providing us this video. Let's look into this with you in DM here: https://t.co/GDrqU22YpT",
+    "difficulty": "hard",
+    "edge_case_tag": "security_compromise"
+  },
+  {
+    "id": "GOLD-080",
+    "customer_text": "@AppleSupport I got a message that said my account was locked. I just want to be sure it was sent from Apple.",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "Let's look into that. Send us a DM and we'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-081",
+    "customer_text": "@AppleSupport Hello there i need help with the use of an administartors name and password on my imac",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Hi! We're happy to help. Join us in DM with the macOS version installed on your iMac and more details about what's going on. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-082",
+    "customer_text": "@AppleSupport hey Apple support a picture of other people just showed up on my pictures. I do not know these people what so ever. And when my phone is rotation is locked it still turns",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Let's look into this together. DM us which iPhone and iOS version you're experiencing these issues on, and we'll start from there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-083",
+    "customer_text": "@AppleSupport how can I delete my icloud account?",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "Thanks for getting in touch! We'd love to talk to you about this more. DM us more details about why you want to delete your Apple ID so we can be sure to get you to the right team. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-084",
+    "customer_text": "@AppleSupport how can i reset security questions?i face this error:We don't have sufficient information to reset your security questions.",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We'll need to refer you here for help with your Apple ID:  https://t.co/UJm15vmMM2",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-085",
+    "customer_text": "@AppleSupport @123678 @AppleSupport oh dear @123678 still not co-oping with iCloud in ios11.1 really really poor show. #garageband",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. If you're still having troubles, be sure to follow up with our team that helps with GarageBand here:https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-086",
+    "customer_text": "Apple Face ID isn\u2019t too secure on the iPhoneX . My non-identical twin just managed to access my phone! @8495 @AppleSupport @115858 #fail #apple #iphoneX #security #FaceID",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We've got your DM's, and we look forward to working with you there.",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-087",
+    "customer_text": "@AppleSupport this comes up after I enter my correct password!! Why can I authorize my MacBook? https://t.co/FDICEHSOoL",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We're happy to help out! Send us a DM with your macOS version from \uf8ff &gt; About This Mac with the link below. We'll join you there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-088",
+    "customer_text": "@AppleSupport I use @115948 on my iPhone and iPad, is there any reason why the 'iCloud music library' button continously turns off on it own on my iPhone?!#iPhone #AppleMusic #iPhoneHelp",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Hey there, we'd be happy to look into this with you. Do you notice this happening in relation to any particular steps taken on your iPhone? For example, this would be normal if you're signing out of your Apple ID. Also, which iOS version is installed on your iPhone?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-089",
+    "customer_text": "locked out of my apple ID bcuz my old phone broke &amp; i had 2 factor authentication on , no one should ever use tht shit @115858",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Here's a great article to help you get back into your Apple ID: https://t.co/nXAGZj0EE7",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-090",
+    "customer_text": "@AppleSupport Is there a way to save the photos you have on a external hard drive to iCloud?",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks for contacting us with this great question about importing photos to iCloud! There are a couple of different ways, so we want to know a bit more, so we'd love to help! DM us which kind of computer you're using and we'll get started. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-091",
+    "customer_text": "@AppleSupport Other site works on Safari, and at the same time icloud login also works perfectly fine in Chrome",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We've checked our status everything looks ok. https://t.co/7NVrDovSd8. Have you tried clearing your Safari browser history? https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-092",
+    "customer_text": "@AppleSupport Thanks. Yep I checked that, but neither phone has the other listed as an alternative data source. It\u2019s almost like it\u2019s because they\u2019re both linked to my iCloud account or something. Here\u2019s an example from one of them, the one listed is the same device name. https://t.co/zKVWO3obZj",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "We'd like to look into this further. Please DM us to continue working on this. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-093",
+    "customer_text": "@AppleSupport I need my password resetting as I forgot it loads of times etc... it\u2019s saying that I have to wait until a certain date. Help",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We'll do all we can to help. Are you referring to the passcode to unlock an iOS device or to your Apple ID password?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-094",
+    "customer_text": "@115858 help, screaming into the void over here. phone won't let me restore to backup, says my password is wrong. but it's not wrong. help.",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're here for you. Are you trying to restore a backup from iCloud or iTunes?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-095",
+    "customer_text": "@AppleSupport how do I sign out my Apple ID account without having to verify my account? I know the password to my Apple ID I just can\u2019t verify my account because I forgot my email password I literally had this since the first iPod Touch came out. I just want to sign out",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "We'd love to help with this. We know how important it is to be able to manage your Apple ID and we can assist. Let's chat over in Direct Message so we can go into further details about the process. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-096",
+    "customer_text": "@115858 I\u2019m clearly not having a good day when all my pictures on the iCloud Drive got corrupted. #AppleNews #AppleTips #AppleSucks https://t.co/2FLITVSiry",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're here for you. You'll want to get in touch with a Photos expert by phone here: https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-097",
+    "customer_text": "@AppleSupport My phone got stolen but i can't change my apple id password because of the 2 step verification that requires my phone! Do you have a uk based email that i can contact about this?",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Security threat or unauthorized access requires authenticated account verification.",
+    "ground_truth_reply": "We'd like to help any way we can over Twitter. The first steps to take would be here: https://t.co/fUoKdx4YutAs you're unable to change your Apple ID password, we recommend reaching out to our Apple ID group using this link: https://t.co/UJm15vmMM2",
+    "difficulty": "hard",
+    "edge_case_tag": "security_compromise"
+  },
+  {
+    "id": "GOLD-098",
+    "customer_text": "@AppleSupport is it possible to make an appointment for someone else? My sister is locked out of her account and her iPhone is dead so she can\u2019t receive the code.",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "We'd love to help with this. We\u2019d be happy to assist.  Just so we are on the same page, she is trying to receive her two-factor authentication to unlock her Apple ID, and you wanted to make an Apple Retail Store appointment?  Please respond in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-099",
+    "customer_text": "@AppleSupport Hello! Do you guys know if it is possible to store the Photos app library in a NAS? I don\u2019t need to sync iCloud. Thank you!",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Hey, we can get you pointed in the right direction for questions regarding Photos. Please reach out to our Photos experts using this link: https://t.co/IBIY3vMgPj They'll help you out.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-100",
+    "customer_text": "@AppleSupport I was supposed to get an answer from Engineering as to why my iCloud drive isnt working. Grady has been an amazing help but my case isn't resolved one bit yet. Case number 100360325798",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Thank you for getting in touch with us. Please send us a DM including the country you're in. We'll continue there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-101",
+    "customer_text": "@AppleSupport iCloud hacked &amp; am now locked out of my Mac which now asks for a 6 digit pin or to contact support on __email__...",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Security threat or unauthorized access requires authenticated account verification.",
+    "ground_truth_reply": "Thanks for reaching out. For assistance with your Apple ID reach out to our Account Security team here: https://t.co/UJm15vmMM2",
+    "difficulty": "hard",
+    "edge_case_tag": "security_compromise"
+  },
+  {
+    "id": "GOLD-102",
+    "customer_text": "@AppleSupport - security patch installed automatically on Mac this morning and now NO user password works. Mac is locked. Need help ASAP",
+    "ground_truth_intent": "icloud_appleid_security",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Are you able to get into the Guest user? Let us know in DM, and we'll team up to see what's going on. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-103",
+    "customer_text": "@AppleSupport Installing iTunes now.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Great! Keep us updated.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-104",
+    "customer_text": "@AppleSupport I all of a sudden have a ton of duplicate films showing in my iTunes collection.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Our website here has some info that should help you: https://t.co/7a2drmJF0i DM us if you have any other questions about this. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-105",
+    "customer_text": "Hey, @115858, is your server down? I can't access the App Store",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Hello. Check our system status here: https://t.co/7NVrDovSd8 Have you tried on another Wi-Fi network by chance?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-106",
+    "customer_text": "@AppleSupport Where did the tones tab go from my iTunes! I can\u2019t even download / get my made ringtones \ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2642\ufe0f #annoyed!",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Hey there. We'd be happy to clarify. Send us a DM so we can discuss this with you there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-107",
+    "customer_text": "@AppleSupport how do I go about raising a high level complaint please? 4 senior techs couldn\u2019t help fix my problem, now my e mails are being unanswered, want a refund for a product that\u2019s not fit for purpose, have tried everything to fix, thanks.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard refund or subscription query self-served via reportaproblem.apple.com.",
+    "ground_truth_reply": "We'd be happy to look into this with you. DM us using the link below and we'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_refund_faq"
+  },
+  {
+    "id": "GOLD-108",
+    "customer_text": "@AppleSupport Please give me some info on Apple Pay on ios11 on iPhone 7 India support. Thanks in advance.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Apple Pay is not currently supported in India. We keep a current list of countries that support Apple Pay here: https://t.co/tKY0Mal39U",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-109",
+    "customer_text": "How do you activate the emergency sos with the X because hitting the power button continuously just brush up my Apple Pay @AppleSupport",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for reaching out to us. We'd be happy to help. This article shows how to activate an emergency call on your iPhone X: https://t.co/NOFjqtl0yV",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-110",
+    "customer_text": "@AppleSupport No, thank you. If it involves spending 2 hours at a Genius Bar and spending money on repair, I\u2019ll pass. Thank you for your response.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Let us know if you change your mind, and we'll take a look at this with you.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-111",
+    "customer_text": "@AppleSupport I bought an iTunes gift card worth \u00a315 a week ago, and the email still hasn\u2019t come into my inbox to tell me the code. Helpppp",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're here for you. You'll need to contact our iTunes Store group for help with iTunes codes: https://t.co/SDIe7UiyJN",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-112",
+    "customer_text": "@AppleSupport do you have a problem in your servers ?I updated my Iphone 7, asked me to login to itunes, but it won't do it, a message: \"There was a problem connecting to the server...etc\" and another message: \"KVC synchronizeWithCompletionHandler Failed\"how to fix it please ?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd like to help any way we can. From our System Status link, it appears to be working fine: https://t.co/7NVrDovSd8Which exact iOS version number is installed on your iPhone 7?Any steps tried so far?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-113",
+    "customer_text": "@AppleSupport I had subscribed for apple music free trial version for 3 months and the very next day it charges me 3 something dollars. What's the point of 3 months free subscription here?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Thank you for getting in contact with us. Please reach out to the iTunes Store team to investigate this charge further. Use this link to get in contact: https://t.co/SDIe7UiyJN",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-114",
+    "customer_text": "@AppleSupport I face trouble adding Exchange account to my iPhone Mail App but works fine on the Mail App on my Mac. In Addition to that, the Push on my mail app does not work.Have trouble with iTunes as well.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're glad to assist here. Let's look at one thing at a time. What's going on with iTunes?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-115",
+    "customer_text": "@AppleSupport is there an issue with deleting music off the iPhone 8 via iTunes &amp; it not removing the files from the phone been addressed?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd be happy to look into this with you! So when you try to delete music from the phone using iTunes, it isn't actually removing the songs from your device? Let us know in a DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-116",
+    "customer_text": "@AppleSupport Thanks for getting back to me. I have Windows 10 &amp; the latest version of iTunes, which updated this morning just before I did the sync.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks for letting us know. Check out this article for troubleshooting: https://t.co/czNgyf4Rgl DM us if the issue persists. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-117",
+    "customer_text": "@AppleSupport I can\u2019t download app updates from App Store without restarting my phone (6S / 11.1.2). Is this being fixed soon or is that just standard now?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. This isn\u2019t expected behavior, we\u2019ll work through fixing this together. Are you able to try updating these same apps with another network?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-118",
+    "customer_text": "@AppleSupport Are you going to release Apple Pay to Greece in the upcoming months?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We appreciate your interest and encourage you to stay up to date on Apple news here: https://t.co/gbIPLOsnZd",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-119",
+    "customer_text": "I am amazingly and surprisingly disgusted at @115858 and their customer service. Even though I\u2019m trying to spend money on them, I\u2019m not good enough for their 24 hour support line and the online support members are horrible.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Certainly not what we want you to experience! Please let us know what's going on and how we can help in a DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-120",
+    "customer_text": "@115858 @AppleSupport please bring back the \"Play Later\" feature for iTunes!",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for contacting us for support. Let's look into this together. Could you tell us which Apple product you're using?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-121",
+    "customer_text": "Yep cheers iTunes, how do I fix this? Preordered the album this week @AppleSupport #WhoBuiltTheMoon https://t.co/yvyfuAsR8s",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Let's work together to get your music downloaded. Are you seeing and downloads available in the iTunes Store? To check, from your Home screen tap iTunes Store &gt; More &gt; Downloads.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-122",
+    "customer_text": "Yo @115858 I didn\u2019t pay $900 to have my phone be glitching after not even 6 months. Quit your shit.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're interested in getting your iPhone back on track. What's going on? Tell us about the \"glitching\". Maybe we can help.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-123",
+    "customer_text": "@AppleSupport Apple Music is not letting me switch to the student subscription after I verified my student account 2 months ago! I\u2019ve been charged $9.99 https://t.co/SBNuE1OA11",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer message contains or requires private account/device PII.",
+    "ground_truth_reply": "We'd love to help with this. Got it. We'd like to investigate this. Send us a DM and we'll take a closer look. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "pii_dm_transfer"
+  },
+  {
+    "id": "GOLD-124",
+    "customer_text": "@AppleSupport Well I have iTunes open but it doesn\u2019t work. The buttons were working in safari when I had a video open, but then I closed it. Currently iTunes is the only window with media playing.",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Do the media keys work if you have iTunes open and on screen (rather than minimized)?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-125",
+    "customer_text": "@AppleSupport hi there, I need to inquire something regarding he refund of an item",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard refund or subscription query self-served via reportaproblem.apple.com.",
+    "ground_truth_reply": "We'd love to help with this. For questions about refunds, our iTunes Store would be the best team to help. Reach out to them here:  https://t.co/SDIe7UiyJN",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_refund_faq"
+  },
+  {
+    "id": "GOLD-126",
+    "customer_text": "@AppleSupport It shows in computer folder, but is not in the iTunes list of backups. How can I select it if it\u2019s not in the iTunes list?",
+    "ground_truth_intent": "billing_subscriptions_purchases",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Let's look in to this together. Please DM us about this issue and we'll continue there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-127",
+    "customer_text": "Oye @115858, muy bonitos tus nuevos emojis pero, \u00bfpara cuando el poder desactivar (REAL) el Wifi y el Bluetooth desde el CC?",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Get help in Spanish here: https://t.co/IBIY3vMgPj or join https://t.co/OczyRx7IOs",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-128",
+    "customer_text": "@AppleSupport SMS on. Cellular data off. Still will not deliver photo text messages",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Let's take a closer look into this. Send us a DM to get started. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-129",
+    "customer_text": "@AppleSupport when i try to airdrop pictures from my macbook air to iphone 7, the mac doesn\u2019t detect my phone. i made sure bluetooth/airdrop/etc was on.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Physical or environmental hardware damage requires physical inspection or replacement.",
+    "ground_truth_reply": "We'd be happy to look into this with you. Can you provide us the macOS and iOS version you're using?",
+    "difficulty": "medium",
+    "edge_case_tag": "hardware_damage"
+  },
+  {
+    "id": "GOLD-130",
+    "customer_text": "Why the HELL does my MacBook NEVER connect to my good ass internet please help me @115858",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. It's essential for your Mac to work as you expect, and we'll do all we can to help out. Would you mind letting us know the OS version installed on your Mac? From the Apple menu (\uf8ff), choose About This Mac. The version number appears beneath \u201cmacOS\u201d or \u201cOS X.\u201d",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-131",
+    "customer_text": "I have an iPhone that refuses to connect to WiFi even though it\u2019s inches away from the router! \ud83d\ude21\ud83d\ude21. 2 expensive 2 b this crap. @AppleSupport",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd like to help out with your Wi-Fi. Follow the steps in this article and let us know how it goes: https://t.co/2NrOWKKcvY",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-132",
+    "customer_text": "@AppleSupport No, it stays off for a short period of time. If I connect to a WiFi network in another time zone or travel to another time zone, it turns itself back on.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Got it, thanks. So that we can look into this further, DM the iOS version your iPhone is currently running. This info can be found under Settings &gt; General &gt; About. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-133",
+    "customer_text": "@AppleSupport Thank you! My friend spotted this. I didn't realise it wouldn't automatically do the latest one. Thanks for replying-will do when get wifi\ud83d\ude00",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Awesome! Let us know how it goes.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-134",
+    "customer_text": "@AppleSupport I don\u2019t want to have to check! Is there a way for the device to show the status of the personal hotspot, as it does when it is connected to a client, and as the network bars show status?",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. The only other way to see if Personal Hotspot is enabled or not is by using 3D touch on the network toggles in Control Center where you can quickly turn it on or off.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-135",
+    "customer_text": "@AppleSupport I\u2019m running 11.0.2, it seems to happen over both Wi-Fi and cellular",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Got it! Let's follow up in DM. We'll take a deeper look there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-136",
+    "customer_text": "@AppleSupport yes i have been able to before but this happens quite a lot and yes i have both turned on on my macbook and they\u2019re connected to the same wifi and everything",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd like to take a closer look at your AirDrop and Photos concerns with you. Reach out via DM using the link below. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-137",
+    "customer_text": "@AppleSupport It\u2019s the only WiFi I connect to so I can\u2019t really answer that",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Got it, thanks. Please send us a DM and tell us more about the issue. Did it start after updating iOS or changing any settings? Also, does restarting the device remedy the issue temporarily? https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-138",
+    "customer_text": "@118101 hey having problems with my new iPhone X staying connected to the tube Wi-Fi. You aware of a big? Any work arounds?",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Have you had a chance to power down and restart your device? Please DM us and we'll continue. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-139",
+    "customer_text": "@AppleSupport Yes. It doesn\u2019t work on any home networks. Only my work WiFi. Not xfinity hotspots or my private home network \ud83d\ude2b",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Is it showing an error message? DM us below. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-140",
+    "customer_text": "@AppleSupport A few hours ago...I\u2019m on WiFi at a restaurant cellular connections not good enough",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Are you able to access other Internet-based content while connected to the restaurant Wi-Fi?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-141",
+    "customer_text": "@AppleSupport yesterday I purchased iPhone 6. Trying to connect to PC for copy songs but it\u2019s not recognizing. Please help.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Let's work on this together. Which version of Windows are you using? DM the answer below. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-142",
+    "customer_text": "@AppleSupport Could it be the WiFi ? It hung up more than 5 times, i know \ud83e\udd28",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for that screenshot. Have you tried making calls on mobile data or while connected to another Wi-Fi network?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-143",
+    "customer_text": "@AppleSupport Pour les anciens wifi enregistr\u00e9s il me signale que les mots de passe ne sont pas corrects.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Contact us for help in your preferred language here: https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-144",
+    "customer_text": "@AppleSupport When you turn it off from the settings it says \u201coff\u201d and does not connect randomly. If you turn it off from the control centre it says \u201cnot connected\u201d in the settings and connects sometimes randomly.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. This is expected behavior with the iOS 11 updates. The Control Center function is a quick disconnect feature that will only disconnect your current connection. To disable, you'll want to go into your settings. For more information, please visit: https://t.co/G7BHuQnDS6",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-145",
+    "customer_text": "Is it just me or did the delete key on my Bluetooth keyboard stop working in Mail on iOS11? Com\u2019on @115858 you\u2019re killing me with iOS11 bugs. https://t.co/QpvkrEvzIg",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Hello. Thanks for bringing this to our attention. We'd like to team up with you and get this sorted. Click here to join us in DM and provide us with the device and iOS 11 version that you're using: https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-146",
+    "customer_text": "My @115858 #iphone just crashed and deleted all of my pictures, which are gone forever because it can\u2019t connect with my #macmini. #pissedoff #applehasbecomejunk",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Hello. We know those memories are important. Please DM us and share a few details about what happened: https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-147",
+    "customer_text": "@AppleSupport I\u2019m currently staying with family and don\u2019t have access to other Bluetooth devices to connect to, unfortunately.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Understood, thanks. Are you showing any updates available for the firmware in your car? Also, are you showing any connection errors on your iPhone or in the car?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-148",
+    "customer_text": "@AppleSupport Yes. Looking for ways to minimize ipad data use while tethered through iPhone on cellular.",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Turning off Background App Refresh is a great step, as well as turning off Automatic Updates under Settings &gt; iTunes &amp; App Store.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-149",
+    "customer_text": "@AppleSupport Just upgraded from 6 to iPhone7; but Bluetooth connectivity is a major issue with iOS11. bt device automatically disconnects. Any help?",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Congratulations on the new iPhone 7! We want to be sure you can use your Bluetooth connection as you'd expect to. Let us know if the steps outlined here help you: https://t.co/JMbUWgME3J",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-150",
+    "customer_text": "@115858 Please allow us to switch off Bluetooth &amp; Wifi in the control center again, it\u2018s really bugging a lot of iphone users!!!\ud83d\ude4f\ud83c\udffc",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for reaching out! We'd recommend leaving that request on our feedback page: https://t.co/eTPVYVFyd8",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-151",
+    "customer_text": "Nice @115858. Less than a week old then WiFi and BT break on my new iPhone. I tried all your support articles. So glad I purchased! https://t.co/WKbGgSY6QV",
+    "ground_truth_intent": "connectivity_network_bluetooth",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're here to help. Which version of iOS do you have installed on your iPhone? You'll see this in Settings &gt; General &gt; About.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-152",
+    "customer_text": "@AppleSupport It freezes constantly having problems sending text messages I constantly turn it off and on because I can not call out and at times no sound",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Got it. Please DM us and we will continue troubleshooting from there. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-153",
+    "customer_text": "I was half asleep and accidentally made an emergency call (I was trying to stop an alarm...). After hanging up, the screen keeps displaying \u201cNotification Canceled\u201d. No response to input. I can\u2019t restart iPhone X right now. Can switch apps using Siri. Pls help! @AppleSupport https://t.co/NShP7Mrpiq",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're happy to hear it seems to be resolved now after the restart. Be sure to let us know if you need any further help.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-154",
+    "customer_text": "@AppleSupport Like this. Open the Multitasking screen, swiping up on the WhatsApp app to close it; as seen in the video. https://t.co/yeOErcAbIz",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Meet us in DM with a screenshot of what shows in Settings &gt; Notifications &gt; WhatsApp, please. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-155",
+    "customer_text": "@115858 @AppleSupport so I have an iPhone 6 and whenever I press the screen slightly harder then usual, it makes a clicking sound. Should I be worried at all?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. It's understandable that you want to make sure your iPhone is in good shape, and we can help get to the bottom of this with you. This clicking noise you are hearing, is that only in one specifc spot on the screen? Are you using any kind of case with your iPhone?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-156",
+    "customer_text": "Help @AppleSupport, why does the audio stop recording when I use FaceTime? Just tryna make thanksgiving memories pls https://t.co/Ol4byLxLwK",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. What you are seeing with FaceTime and screen recordings is expected. We welcome feedback on our apps and ways we can make them better, and you can leave that here: https://t.co/eTPVYVFyd8",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-157",
+    "customer_text": "@AppleSupport And I mean switching between windows of the same application (while in full screen mode)",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for providing us that information. Just to confirm you're on macOS 10.12.6, correct? Can you provide us which application you're using and the keys you're using to try to perform this action?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-158",
+    "customer_text": "@AppleSupport Yeah I restarted it and it still won\u2019t open just a black screen",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Got it. Next, send us a DM and we'll take a closer look into this. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-159",
+    "customer_text": "@AppleSupport why is the icon for certain apps in the @118936 different than the ones that dlonwload to my home screen?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Let\u2019s figure this out together. DM us the apps you\u2019re noticing this with, and we\u2019ll get started. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-160",
+    "customer_text": "@AppleSupport All website. I can record with audio. The recording are playing well in Photos and the sound is ok. But when I import them in iMovie, the sound doesn\u2019t follow. Only if I was in Safari when I made the screen recording",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Is this iMovie for iOS or for the Mac?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-161",
+    "customer_text": "Well guys ... i dropped my iPhone .. my iPhone w/ a case on it .. my iPhone that\u2019s supposedly shatter proof .. my iPhone 8 Plus That now has a cracked screen .. any explanations @115858 \ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f\ud83e\udd26\ud83c\udffd\u200d\u2640\ufe0f",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Physical or environmental hardware damage requires physical inspection or replacement.",
+    "ground_truth_reply": "We'd love to help with this. We can help look into options to get this repaired. Reach out to us in DM and we will help. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "hardware_damage"
+  },
+  {
+    "id": "GOLD-162",
+    "customer_text": "@AppleSupport when are we getting updates to fix the bugs with the screen recorder? it doesn't play audio when I record it from safari",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We want you to be able to screen record without issue. Please meet us in DM and we'll take a further look at this together. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-163",
+    "customer_text": "@115858 I upgraded ipod touch to OS11 and now I get no album art on my honda 2015 civic touch screen, WTF?!?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "Thanks for reaching out. We'd like to know more to help. Have you checked for a firmware update for your Honda?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-164",
+    "customer_text": "@AppleSupport @124871 is there a way to close all open apps and return to home screen at once with Apple classroom?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Reach out to our Education department through the following link:  https://t.co/IBIY3vMgPj",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-165",
+    "customer_text": "@159974 @159975 @AppleSupport y eso que el problema del \ud83d\udc42 speaker",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. We offer support via Twitter in English. Get help in Spanish here: https://t.co/IBIY3vMgPj or join https://t.co/OczyRx7IOs",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-166",
+    "customer_text": "@115858 Opening a video FS on browser iOS11.0.1 keeps on popping up/refuses to close then you get black screen of death after 5 sec #annoying",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help. First, please take a moment to back up and update to iOS 11.0.2, then let us know if the issue persists.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-167",
+    "customer_text": "@AppleSupport the screen had green lines on one side and then stopped working altogether. Afraid I can't remember the OS, I expect it was in the latest OS when it broke about 8 weeks ago if hat helps?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. Indeed that is very helpful. We'd like to gather more information from you. Please click on the link to continue this conversation in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-168",
+    "customer_text": "@AppleSupport And then it actually locks with a blank screen",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "Thanks! Go ahead and reach out to us in DM and let us know exactly what steps you took to restore the iPhone. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-169",
+    "customer_text": "@AppleSupport Slowed dawn a lot. When I open some apps screen goes black",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. What version of iOS are you running in Settings &gt; General &gt; About?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-170",
+    "customer_text": "@123695 @115858 My screen is all messed up. Won\u2019t let me type right",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to help with this. We want to help. Does this happen in all apps or just a few? Tell us in DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-171",
+    "customer_text": "Hello @115858 @AppleSupport what\u2019s happening to my screen https://t.co/GTNXT4VoKd",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Self-service troubleshooting steps available before DM escalation.",
+    "ground_truth_reply": "We'd love to take a look into this concern. Is the screen stuck this way have you restarted it? Send us a DM. https://t.co/GDrqU22YpT",
+    "difficulty": "easy",
+    "edge_case_tag": "troubleshooting_flow"
+  },
+  {
+    "id": "GOLD-172",
+    "customer_text": "My phones speaker just broke down on me thanks @115858 do better",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're here to help. Which iPhone and iOS version are you using? Are you having a sound quality issue or is there no sound at all?",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-173",
+    "customer_text": "@AppleSupport I updated my phone and now my speaker for calls won\u2019t work. How do I fix this?",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We're anxious to help. Could you let us know which version of iOS your devices are running? We just released 11.0.2.",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-174",
+    "customer_text": "Halo. @AppleSupport it's stuck on this screen no matter how many times I click anything so I can't turn it off to fix it \ud83e\udd14 https://t.co/4YyjgRAoC2",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "We'd love to help with this. Hey there, let's try force restarting your iPhone to see if anything changes. This link should help: https://t.co/8MvHMFZ83h",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-175",
+    "customer_text": "@116333  why can\u2019t i rearrange my apps on my homescreen ? With 5,8 inch screen it don\u2019t makes sense to reach at the top of my phone !",
+    "ground_truth_intent": "audio_display_accessories",
+    "ground_truth_escalate": false,
+    "ground_truth_escalation_reason": "Standard customer inquiry suitable for automated troubleshooting and knowledge base links.",
+    "ground_truth_reply": "You can rearrange your Home Screen or put your apps into folders. Here's how: https://t.co/M9lEQj2OhE",
+    "difficulty": "easy",
+    "edge_case_tag": "standard_inquiry"
+  },
+  {
+    "id": "GOLD-176",
+    "customer_text": "WTF @AppleSupport!?! After being on hold for over 25min each, both #AppleStore calls hang up while talking to representative. I am cursing your phone system; voice attendant is unphased. #ThirdTimeIsTheCharm?",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. This is not the experience we want you to have. Maybe we can help. Please meet us in DM to proceed. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-177",
+    "customer_text": "@AppleSupport  I can receive on my facetime - MacBook air. However if I try to vidcall the other person won't get my call. What can I do?",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We're here for you. Check out this article for help with FaceTime: https://t.co/9TOn04wzxN",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-178",
+    "customer_text": "@AppleSupport  dont understand why i just called you to have my phone not working stilll.... thanks so much",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. Send us a DM. Let us know more details on the issue. We'll do our best to help. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-179",
+    "customer_text": "@AppleSupport Tried that for many days already, it\u2019s useless",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "Thanks for letting us know. Because we don't handle orders via Twitter, we'd ask that you keep trying to reach our Online Store. They are best suited to assist you.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-180",
+    "customer_text": "@115858 @AppleSupport I spent the evening at Grand Central due to a continued terrible and mysterious \"FaceID true depth camera disabled\" error and received no solution - help! https://t.co/B8OBCN0BZz",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd be happy to look into this with you. Let us know via DM which version of iOS you're running on this iPhone X. We'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-181",
+    "customer_text": "@115858 the first person whom i chatted who did all this disconnected from the chat. the second person was hesitant to give the ticket numberfinally got a ticket number 3251783",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd like to investigate further with you. Send us a DM and we can go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-182",
+    "customer_text": "@AppleSupport you guys are terrible back in October you said you\u2019d send me something so I could send in my AirPods for repair since they didn\u2019t work when I bought them. You never sent them to me at fort sill. Thanks!",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. We are happy to help. Please DM us and we will continue from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-183",
+    "customer_text": "@AppleSupport It just shows all message view, not where I can write to that person..",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. Do you know what version of the iOS is on the device?  If not, you can check under Settings &gt; General &gt; About &gt; Version.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-184",
+    "customer_text": "@AppleSupport I\u2019m in a family plan and I\u2019m the only person who gets this, I put in the correct info and it tells me it\u2019s invalid https://t.co/8wnwwgKQZB",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. The message that you are getting asks the Family Organizer to update their payment information.  Has he updated his information?",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-185",
+    "customer_text": "My phone does not notify me of new messages whenever its unlocked and I really dont know why but I absolutely hate it! &amp; @AppleSupport needs to fix that NOW! Because that is highly unacceptable and I do not appreciate the inconvenience it causes me or my friends as a result of it",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd be happy to look into this issue with you more in detail.  Reach out to us via DM and let us know what iPhone you're using and the iOS version that is installed and we'll continue from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-186",
+    "customer_text": "@AppleSupport thanks! spoke to someone on the phone and it\u2019s semi sorted",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. Your welcome. Please let us know if you need any further assistance.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-187",
+    "customer_text": "@AppleSupport has terrible service and hires rude ass people to text you for tech \u201csupport\u201d",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. That's not the experience we want you to have. Send us a DM and let us know what happened. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-188",
+    "customer_text": "@AppleSupport it's ok. i called in. all set.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. Great! If we can help at all in the future with your Apple products please reach out to us.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-189",
+    "customer_text": ".@115858 @AppleSupport would anyone care to get in touch to sort out the mess called High Sierra after it crashed my Mac? I logged a call for support a week ago and again two days ago and no one bothered to contact me #worstcustomercareever",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "Let's take a closer look at what's happening together. Please DM us more details here: https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-190",
+    "customer_text": "@AppleSupport watchOs4 made my watch pointless Browsing music on my phone via the watch was 80% reason for buying it now it\u2019s useless.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. You should still be able to control Music on your iPhone from the watch. Check out the user guide here: https://t.co/vRQnmrhVHj",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-191",
+    "customer_text": "@AppleSupport - Hi! Is there any way to determine WHICH phone # initiated a group text? All I\u2019m able to find is a list of phone #s incl in the group. I know who the person is &amp; want to save the # to contacts but don\u2019t want to mass text group to ask which number is this person\u2019s.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd like to help. Let us know which device and OS you're using via DM. We'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-192",
+    "customer_text": "@AppleSupport I can't use my iPhone 7 Plus since 11.1.2, Apple music (music app completly) useless, won't start, and after restoring network and settings, my device won't startup, takes 3 hrs and never ends the startup.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "Thanks for taking the time to reach out. We'd like to take a closer look at this with you. DM us using the link below and we'll go from there. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-193",
+    "customer_text": "@AppleSupport guys, on my new iPhone X Spotlight search (or how is it called now) cannot find any of my contacts! How can I force it to index again my contacts book?",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. We want to help with the search feature on your new iPhone X. Go to Settings &gt; Siri &amp; Search &gt; Contacts on your iPhone and check that it's turned on there. If it's already turned on, turn it off, restart, and turn it back on. Let us know if that helps.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-194",
+    "customer_text": "@AppleSupport hi i have an issue with my iPhone- it was work then i called apple after that it doesn't work ....they we can do nothing",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We're here to help. Let's take this to DM so we can better assist you. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-195",
+    "customer_text": "@115858  thanks for making my phone backup fucking useless, cant download it back onto my phone because of a shitty ''two-factior verification' with my fucking old number, load a shite",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. We know how important being able to restore from a backup is. DM us a bit more details on what\u2019s happening when you try to restore it, and we\u2019ll work towards a resolution together. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-196",
+    "customer_text": "@AppleSupport Thanks, I already took it to the Apple store. The problem is that your QC is really terrible. Less than a week? Really?!",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "Thanks for keeping us updated. If you encounter any issues in the future, feel free to reach out to us, and we'll gladly assist.",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-197",
+    "customer_text": "@AppleSupport I need an actual human to help me",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. Understood. For further help with your Apple ID, connect with one of our Apple ID Advisors here: https://t.co/UJm15vmMM2",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-198",
+    "customer_text": "@115858 the Basingstoke store has the most useless and unhelpful bunch of staff I have ever met. Turning me down and refusing to help me with a manufacturing fault of my phone. Expect me to sort out my own phone or fob me off to the network I brought it from.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd like to look further into what's going on with you. Please meet us in DM so we can gather additional details. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-199",
+    "customer_text": "@AppleSupport  I\ufe0f swear y\u2019all need to fix(i ) this like right fucking now I\ufe0f can\u2019t even message my manager on group me without looking dumb",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "Let's work together to find the best solution. DM us with what type of device you're using. https://t.co/GDrqU22YpT",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  },
+  {
+    "id": "GOLD-200",
+    "customer_text": "@AppleSupport why since my 7s was updated am I having trouble sending picture messages? It freezes when I try to select person to send to.",
+    "ground_truth_intent": "human_escalation_dm_transfer",
+    "ground_truth_escalate": true,
+    "ground_truth_escalation_reason": "Customer explicitly requested live human advisor or raised severe dissatisfaction.",
+    "ground_truth_reply": "We'd love to help with this. We can help with MMS. Which version of the iOS are you currently running? You can check in Settings &gt; General &gt; About &gt; Version",
+    "difficulty": "medium",
+    "edge_case_tag": "human_escalation"
+  }
+]
