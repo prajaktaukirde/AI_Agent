@@ -1,0 +1,193 @@
+{
+  "benchmark_summary": {
+    "trivial_baseline": {
+      "intent_accuracy": 0.145,
+      "escalation_f1": 0.0,
+      "escalation_recall": 0.0,
+      "dangerous_misses": 49,
+      "avg_rouge_l": 0.2519,
+      "avg_judge_score": 4.5
+    },
+    "simple_baseline": {
+      "intent_accuracy": 0.565,
+      "escalation_f1": 0.1509,
+      "escalation_recall": 0.0816,
+      "dangerous_misses": 45,
+      "avg_rouge_l": 0.0745,
+      "avg_judge_score": 4.35
+    },
+    "applesupport_ai_agent": {
+      "intent_accuracy": 0.9,
+      "intent_macro_f1": 0.8976,
+      "escalation_accuracy": 0.885,
+      "escalation_precision": 0.76,
+      "escalation_recall": 0.7755,
+      "escalation_f1": 0.7677,
+      "dangerous_misses_fn": 11,
+      "unnecessary_escalations_fp": 12,
+      "avg_rouge_l": 0.4272,
+      "avg_bleu_2": 0.3608,
+      "avg_judge_score": 4.66,
+      "judge_pass_rate_pct": 100.0
+    }
+  },
+  "per_class_intent_breakdown": {
+    "audio_display_accessories": {
+      "precision": 0.963,
+      "recall": 0.929,
+      "f1": 0.945
+    },
+    "battery_hardware_performance": {
+      "precision": 0.771,
+      "recall": 0.931,
+      "f1": 0.844
+    },
+    "billing_subscriptions_purchases": {
+      "precision": 0.852,
+      "recall": 0.821,
+      "f1": 0.836
+    },
+    "connectivity_network_bluetooth": {
+      "precision": 0.964,
+      "recall": 0.931,
+      "f1": 0.947
+    },
+    "human_escalation_dm_transfer": {
+      "precision": 0.95,
+      "recall": 0.679,
+      "f1": 0.792
+    },
+    "icloud_appleid_security": {
+      "precision": 0.967,
+      "recall": 1.0,
+      "f1": 0.983
+    },
+    "os_software_update_bugs": {
+      "precision": 0.879,
+      "recall": 1.0,
+      "f1": 0.935
+    }
+  },
+  "human_judge_calibration": {
+    "sample_size": 50,
+    "mean_absolute_error_mae": 0.64,
+    "percentage_within_1_point": 80.0,
+    "cohens_kappa_estimate": 0.842
+  },
+  "failure_cases": [
+    {
+      "id": "GOLD-002",
+      "type": "intent_misclassification",
+      "query": "@AppleSupport Help! My iPhone screen is popping off from the side and the back feels swollen and very hot while charging!",
+      "gt_intent": "battery_hardware_performance",
+      "pred_intent": "audio_display_accessories",
+      "pred_reply": "Your safety is our top priority. Please stop using and charging the device. Send us a DM with your location so we can arrange an urgent service reservation: apple.co/DM",
+      "gt_reply": "Your safety is our top priority. Please stop using and charging the device immediately. Send us a DM with your location so we can arrange an urgent reservation at your nearest Apple Authorized Service Provider: apple.co/DM",
+      "tag": "battery_swelling_safety_hazard"
+    },
+    {
+      "id": "GOLD-019",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport My iPhone 12 suddenly says 'No Service' and in Settings > About > Modem Firmware it is completely blank. Restarting and reseating SIM did not help.",
+      "gt_intent": "connectivity_network_bluetooth",
+      "pred_intent": "connectivity_network_bluetooth",
+      "gt_reason": "Blank modem firmware indicates baseband hardware failure requiring diagnostic repair.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "Let's get your connection working. Try resetting network settings in Settings > General > Transfer or Reset iPhone > Reset > Reset Network Settings, or toggle Airplane Mode: https://support.apple.com/HT204051",
+      "gt_reply": "A blank modem firmware field indicates a hardware diagnostic is required. Please DM us your device IMEI/Serial number so we can check service program eligibility and book a repair appointment: apple.co/DM",
+      "tag": "baseband_hardware_failure"
+    },
+    {
+      "id": "GOLD-021",
+      "type": "intent_misclassification",
+      "query": "@AppleSupport Bluetooth in my car keeps stuttering audio when playing songs from Apple Music on iPhone 15.",
+      "gt_intent": "connectivity_network_bluetooth",
+      "pred_intent": "billing_subscriptions_purchases",
+      "pred_reply": "We'd love to help with this. We understand this is frustrating and we want to help. Please click here to send us a DM so a specialist can assist you directly: apple.co/DM",
+      "gt_reply": "We can help smooth out your car audio. Try forgetting the car connection in Settings > Bluetooth, deleting your iPhone from your car's stereo system memory, and pairing them fresh. Also check if your vehicle's firmware has any manufacturer updates available.",
+      "tag": "car_bluetooth_stutter"
+    },
+    {
+      "id": "GOLD-029",
+      "type": "intent_misclassification",
+      "query": "Ok, I have a $4.99 student account w/Apple Music but just realized some days ago they've been charging me da 12.99 family plan @115858 fix it",
+      "gt_intent": "battery_hardware_performance",
+      "pred_intent": "billing_subscriptions_purchases",
+      "pred_reply": "We'd love to help with this. We can help with your purchases. You can review your charges, cancel subscriptions, or request a refund directly at https://reportaproblem.apple.com.",
+      "gt_reply": "Thanks for reaching out. For billing issues with Apple Music reach out to our iTunes Store Support: https://t.co/SDIe7UiyJN",
+      "tag": "standard_inquiry"
+    },
+    {
+      "id": "GOLD-030",
+      "type": "dangerous_escalation_miss",
+      "query": "Every time I look away from my phone and look back it drops like 8 percent, figure this battery thing the fuck out @115858",
+      "gt_intent": "battery_hardware_performance",
+      "pred_intent": "battery_hardware_performance",
+      "gt_reason": "Physical or environmental hardware damage requires physical inspection or replacement.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "Thanks for reaching out about this behavior. Let\u2019s team up to get this addressed. To clarify, approximately how long have you been facing this behavior? Which iPhone are you using? Does this happen while using any particular app or feature?",
+      "gt_reply": "Thanks for reaching out about this behavior. Let\u2019s team up to get this addressed. To clarify, approximately how long have you been facing this behavior? Which iPhone are you using? Does this happen while using any particular app or feature?",
+      "tag": "hardware_damage"
+    },
+    {
+      "id": "GOLD-080",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport I got a message that said my account was locked. I just want to be sure it was sent from Apple.",
+      "gt_intent": "icloud_appleid_security",
+      "pred_intent": "icloud_appleid_security",
+      "gt_reason": "Customer message contains or requires private account/device PII.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "Let's look into that. Send us a DM and we'll go from there. https://t.co/GDrqU22YpT",
+      "gt_reply": "Let's look into that. Send us a DM and we'll go from there. https://t.co/GDrqU22YpT",
+      "tag": "pii_dm_transfer"
+    },
+    {
+      "id": "GOLD-083",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport how can I delete my icloud account?",
+      "gt_intent": "icloud_appleid_security",
+      "pred_intent": "icloud_appleid_security",
+      "gt_reason": "Customer message contains or requires private account/device PII.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "Thanks for getting in touch! We'd love to talk to you about this more. DM us more details about why you want to delete your Apple ID so we can be sure to get you to the right team. https://t.co/GDrqU22YpT",
+      "gt_reply": "Thanks for getting in touch! We'd love to talk to you about this more. DM us more details about why you want to delete your Apple ID so we can be sure to get you to the right team. https://t.co/GDrqU22YpT",
+      "tag": "pii_dm_transfer"
+    },
+    {
+      "id": "GOLD-092",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport Thanks. Yep I checked that, but neither phone has the other listed as an alternative data source. It\u2019s almost like it\u2019s because they\u2019re both linked to my iCloud account or something. Here\u2019s an example from one of them, the one listed is the same device name. https://t.co/zKVWO3obZj",
+      "gt_intent": "icloud_appleid_security",
+      "pred_intent": "icloud_appleid_security",
+      "gt_reason": "Customer message contains or requires private account/device PII.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "We'd love to help with this. We can help you regain access. You can reset your Apple ID password directly at https://iforgot.apple.com or manage iCloud sync settings in Settings > [Your Name] > iCloud.",
+      "gt_reply": "We'd like to look into this further. Please DM us to continue working on this. https://t.co/GDrqU22YpT",
+      "tag": "pii_dm_transfer"
+    },
+    {
+      "id": "GOLD-095",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport how do I sign out my Apple ID account without having to verify my account? I know the password to my Apple ID I just can\u2019t verify my account because I forgot my email password I literally had this since the first iPod Touch came out. I just want to sign out",
+      "gt_intent": "icloud_appleid_security",
+      "pred_intent": "icloud_appleid_security",
+      "gt_reason": "Customer message contains or requires private account/device PII.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "Let's look into that. Send us a DM and we'll go from there. https://t.co/GDrqU22YpT",
+      "gt_reply": "We'd love to help with this. We know how important it is to be able to manage your Apple ID and we can assist. Let's chat over in Direct Message so we can go into further details about the process. https://t.co/GDrqU22YpT",
+      "tag": "pii_dm_transfer"
+    },
+    {
+      "id": "GOLD-098",
+      "type": "dangerous_escalation_miss",
+      "query": "@AppleSupport is it possible to make an appointment for someone else? My sister is locked out of her account and her iPhone is dead so she can\u2019t receive the code.",
+      "gt_intent": "icloud_appleid_security",
+      "pred_intent": "icloud_appleid_security",
+      "gt_reason": "Customer message contains or requires private account/device PII.",
+      "pred_reason": "Standard inquiry with established self-service resolution path and verified safe parameters.",
+      "pred_reply": "We'd love to help with this. We can help you regain access. You can reset your Apple ID password directly at https://iforgot.apple.com or manage iCloud sync settings in Settings > [Your Name] > iCloud.",
+      "gt_reply": "We'd love to help with this. We\u2019d be happy to assist.  Just so we are on the same page, she is trying to receive her two-factor authentication to unlock her Apple ID, and you wanted to make an Apple Retail Store appointment?  Please respond in DM. https://t.co/GDrqU22YpT",
+      "tag": "pii_dm_transfer"
+    }
+  ]
+}
