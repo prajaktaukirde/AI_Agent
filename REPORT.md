@@ -38,7 +38,14 @@ Looking through the Kaggle dataset, I narrowed down Apple customer issues to 7 p
 
 ---
 
-## 3. Results vs. Baselines
+## 3. Golden Evaluation Set & Results vs. Baselines
+
+### Sampling & Labelling Methodology
+To build the **200-sample Golden Evaluation Set** (`data/golden_eval_set.json`), I sampled authentic customer interactions from the Kaggle dataset:
+- **Stratified Intent Split:** Balanced evenly across all 7 intents (~28-30 examples per intent) to prevent majority-class bias.
+- **Triage Split:** 60% auto-handled (`escalate=False`) and 40% escalated (`escalate=True`).
+- **Difficulty Curve:** ~45% standard troubleshooting, ~40% ambiguous multi-device queries, and ~15% hard safety and hostility edge cases.
+- Each sample was hand-labelled with ground-truth intent, escalation decision, explicit escalation rationale, and a grounded brand reply following `data/label_guidelines.md`.
 
 I tested the system on a **200-item hand-labelled Golden Evaluation Set** (`data/golden_eval_set.json`) against two baselines:
 - **Trivial Baseline:** Predicts the most common intent (`os_software_update_bugs`), never escalates, and gives a canned response.
