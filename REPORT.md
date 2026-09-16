@@ -1,126 +1,135 @@
-# Executive Engineering Report & Evaluation: AppleSupport AI Agent
+# Engineering Report: AppleSupport AI Agent
 
-## 1. Problem Framing & Brand Objectives
+**Candidate:** Prajakta Ukirde  
+**Target Brand:** `@AppleSupport` (Twitter Customer Support Dataset)  
+**Repository:** [https://github.com/prajaktaukirde/AI_Agent](https://github.com/prajaktaukirde/AI_Agent)
+
+---
+
+## 1. Problem Framing & What I Chose Not to Build
 
 ### What "Good" Means for @AppleSupport on Twitter
-Customer support on Twitter is public, real-time, and high-stakes. For `@AppleSupport`:
-1. **Public Brand Voice & Empathy**: Responses must be calm, professional, empathetic, and strictly adhere to Apple's brand tone (*"We'd love to help with this"*).
-2. **Factual Troubleshooting Grounding**: Self-service diagnostics (e.g., force restart combinations, storage clearing, network setting resets, battery health checks) must provide verifiable steps accompanied by official Apple Support documentation links (`apple.co/*`, `support.apple.com`).
-3. **Safety & Privacy Zero-Tolerance**: The agent must **never** request passwords, Apple ID verification codes, or credit card details publicly.
-4. **Conservative & Transparent Escalation**: When physical safety hazards (battery swelling), security breaches (account takeover), hardware failures, or high customer distress arise, the agent must immediately route to human advisors via Direct Message (`apple.co/DM`) with a clear, stated justification.
+Customer support on Twitter is public, immediate, and high-visibility. For `@AppleSupport`, a good support agent has to do four things right:
+1. **Brand Voice:** Sound empathetic, calm, and professional (*"We'd love to help with this"*), while keeping responses under 280 characters.
+2. **Factual Grounding:** Direct users to real, official Apple troubleshooting steps and verified documentation (`support.apple.com`, `apple.co/*`), rather than inventing steps.
+3. **Strict Privacy:** Never ask for private info (passwords, 2FA codes, credit cards) in public tweets.
+4. **Conservative Escalation:** Immediately route critical risks (swollen batteries, hacked Apple IDs, hardware damage, or angry customers) to human advisors in DM with an explicit reason.
 
-### What We Chose NOT to Build (Non-Goals)
-- **Arbitrary Open-Ended Generative Chat**: We rejected hallucination-prone ungrounded chat models. Every reply is anchored to authentic historical resolution patterns and whitelisted support domains.
-- **Automated Refund Execution**: The agent never claims to directly refund credit cards; it directs users to the authorized self-service portal (`https://reportaproblem.apple.com`) or escalates to human billing specialists.
-- **Public Credential Collection**: Under no circumstances does the agent perform account credential collection in public tweets.
-
----
-
-## 2. Intent Taxonomy & Escalation Criteria
-
-From the Kaggle Twitter Customer Support dataset (`thoughtvector/customer-support-on-twitter`), we distilled **7 distinct, mutually exclusive intent categories**:
-
-| Intent ID | Core Scope | Auto-Handle Criteria | Human Escalation Criteria |
-|---|---|---|---|
-| `battery_hardware_performance` | Battery drain, overheating, charging failure, slow device performance | Device intact; post-update indexing, background refresh, battery health checks | Physical battery swelling, thermal burn hazard, panic reboot loops |
-| `os_software_update_bugs` | iOS/macOS update errors, boot loops, system crashes, storage bugs | Update verification error, storage clearing, force restart | Prohibitory boot sign, infinite Apple logo boot loop, data loss risk |
-| `icloud_appleid_security` | Apple ID lockout, password reset, 2FA, iCloud sync, Activation Lock | Self-service password reset (`iforgot.apple.com`), photos sync resume | Account compromise/takeover, altered trusted phone number |
-| `billing_subscriptions_purchases` | App Store charges, subscription cancellation, refund requests | Self-service refund (`reportaproblem.apple.com`), subscription toggle | Multi-month disputed charges, family sharing fraud disputes |
-| `connectivity_network_bluetooth` | Wi-Fi drop, Bluetooth pairing, cellular 'No Service', AirDrop | Reset Network Settings, Airplane Mode toggle, stereo re-pairing | Blank modem baseband firmware, physical SIM tray failure |
-| `audio_display_accessories` | AirPods mic/static, broken screen, lines on display, Apple Pencil | AirPods case reset, microphone cleaning, software display settings | Shattered glass, dead touch digitizer, camera hardware disconnect |
-| `human_escalation_dm_transfer` | Explicit human demand, extreme hostility, legal threats, repeat failures | None (always escalated) | Explicit request for human, supervisor demand, legal action threats |
+### What I Chose NOT to Build (Non-Goals)
+- **Ungrounded Generative Chatbot:** I avoided free-form LLM replies that can hallucinate fake features or wrong troubleshooting steps. Every answer is tied to real support docs and verified historical resolutions.
+- **Direct Transaction / Refund Processing:** The agent should not pretend it can issue refunds directly on Twitter. Instead, it routes users to `reportaproblem.apple.com` or hands off to billing staff.
+- **In-Tweet Credential Verification:** Any account security or authentication request must move to DM (`apple.co/DM`) immediately.
 
 ---
 
-## 3. Empirical Results vs. Baselines
+## 2. Intent Taxonomy & Escalation Logic
 
-We evaluated across **200 hand-curated and stratified Golden Evaluation instances** comparing:
-1. **Trivial Baseline**: Always predicts majority class (`os_software_update_bugs`), never escalates, canned reply.
-2. **Simple Baseline**: Naive keyword matching without disambiguation, simple fixed keyword escalation.
-3. **AppleSupport AI Agent**: Hybrid intent classifier, risk-aware escalation router, grounded historical RAG, and safety guardrails.
+Looking through the Kaggle dataset, I narrowed down Apple customer issues to 7 practical intents:
 
-### Benchmark Comparison Table
+1. `battery_hardware_performance`: Battery drain, overheating, charging issues, performance throttling.
+2. `os_software_update_bugs`: iOS/macOS update glitches, boot loops, system storage issues.
+3. `icloud_appleid_security`: Forgotten passwords, locked accounts, 2FA prompts, iCloud sync issues.
+4. `billing_subscriptions_purchases`: App Store subscriptions, accidental charges, refund inquiries.
+5. `connectivity_network_bluetooth`: Wi-Fi drops, Bluetooth pairing issues, cellular 'No Service', AirDrop.
+6. `audio_display_accessories`: Cracked screens, AirPods static, Apple Pencil not pairing, camera bugs.
+7. `human_escalation_dm_transfer`: Frustrated users, repeated failed attempts, legal threats, or direct requests to speak to a person.
 
-| Metric | Trivial Baseline | Simple Keyword Baseline | **AppleSupport AI Agent (Ours)** | Improvement vs. Simple |
+**Escalation Rule:** If a message involves safety hazards (swollen batteries), security risks (account takeovers), physical damage (cracked screens), or severe distress, the router flags it for human review and explains why in the metadata.
+
+---
+
+## 3. Results vs. Baselines
+
+I tested the system on a **200-item hand-labelled Golden Evaluation Set** (`data/golden_eval_set.json`) against two baselines:
+- **Trivial Baseline:** Predicts the most common intent (`os_software_update_bugs`), never escalates, and gives a canned response.
+- **Simple Baseline:** Uses naive keyword matching for intent and a simple list of risk words for escalation.
+
+| Metric | Trivial Baseline | Simple Keyword | AppleSupport Agent (Ours) | Delta vs. Simple |
 |---|---|---|---|---|
-| **Intent Accuracy** | 14.50% | 56.50% | **90.00%** | **+33.5%** |
+| **Intent Accuracy** | 14.5% | 56.5% | **90.0%** | **+33.5%** |
 | **Intent Macro F1** | 0.0357 | 0.5210 | **0.8976** | **+72.3%** |
-| **Escalation Accuracy** | 75.50% | 73.00% | **88.50%** | **+15.5%** |
-| **Escalation Recall** (Catching escalations) | 0.00% | 8.16% | **77.55%** | **+69.4%** |
-| **Dangerous Misses (FN)** *(Lower is better)* | 49 / 49 (100%) | 45 / 49 (91.8%) | **11 / 49 (22.4%)** | **-75.6% Critical Risk** |
-| **Response ROUGE-L F1** | 0.2519 | 0.0745 | **0.3346** | **+349.1%** |
-| **Response BLEU-2** | 0.1820 | 0.0410 | **0.2528** | **+516.6%** |
-| **LLM-as-a-Judge Score (1-5)** | 4.50 / 5.0 | 4.35 / 5.0 | **4.66 / 5.0** | **+0.31 pts** |
-| **Judge Rubric Pass Rate (>=3.8)** | 92.0% | 88.5% | **100.0%** | **+11.5%** |
+| **Escalation Accuracy** | 75.5% | 73.0% | **88.5%** | **+15.5%** |
+| **Escalation Recall** *(Catching Risks)* | 0.0% | 8.2% | **77.6%** | **+69.4%** |
+| **Dangerous Misses (FN)** | 49 / 49 (100%) | 45 / 49 (91.8%) | **11 / 49 (22.4%)** | **-75.6% risk reduction** |
+| **ROUGE-L F1** | 0.2519 | 0.0745 | **0.3346** | +349% |
+| **BLEU-2** | 0.1820 | 0.0410 | **0.2528** | +516% |
+| **LLM Judge Score (1-5)** | 4.50 | 4.35 | **4.66** | +0.31 pts |
+| **Judge Pass Rate (>=3.8)** | 92.0% | 88.5% | **100.0%** | +11.5% |
 
-### Per-Class Intent Performance Breakdown
-- `connectivity_network_bluetooth`: **Precision 1.000 | Recall 0.966 | F1 0.982**
-- `icloud_appleid_security`: **Precision 0.967 | Recall 1.000 | F1 0.983**
-- `audio_display_accessories`: **Precision 0.929 | Recall 0.929 | F1 0.929**
-- `os_software_update_bugs`: **Precision 0.871 | Recall 0.931 | F1 0.900**
-- `billing_subscriptions_purchases`: **Precision 1.000 | Recall 0.786 | F1 0.880**
-- `human_escalation_dm_transfer`: **Precision 1.000 | Recall 0.679 | F1 0.809**
-- `battery_hardware_performance`: **Precision 0.690 | Recall 1.000 | F1 0.817**
-
-### Human-Judge Agreement & Calibration Study
-To validate our automated judge, we ran a calibration study comparing LLM-as-a-judge scores against human expert ratings on a 50-sample split:
-- **Mean Absolute Error (MAE)**: `0.640` points
-- **Agreement within 1.0 Star Rating**: `80.0%`
-- **Cohen's Kappa Agreement**: `0.842` (indicates strong inter-rater reliability)
+### Human-Judge Calibration
+To confirm the automated judge wasn't hallucinating high scores, I ran a calibration test comparing the judge against human ratings on 50 samples:
+- **Cohen's Kappa:** `0.842` (strong agreement)
+- **Mean Absolute Error (MAE):** `0.640` points on a 5-point scale
+- **Agreement within 1 star:** `80.0%`
 
 ---
 
-## 4. Failure Analysis: Top 5 Failure Modes
+## 4. Top 5 Failure Modes
 
-| # | Failure Mode | Real Example Tweet | Root Cause Hypothesis | Mitigation Strategy |
-|---|---|---|---|---|
-| **1** | **Implicit Sub-surface Hardware Failure** | *"I dropped my iPhone on concrete and now the battery percentage is stuck at 1% and the phone restarts every 3 minutes."* | High keyword density for `battery` and `restart` masks the underlying physical trauma trigger. | Add cross-clause dependency parsing to prioritize physical impact verbs over symptom nouns. |
-| **2** | **Multi-Intent Overlap (Billing vs. Service Cancellation)** | *"How do I cancel my Apple Music free trial before it renews and charges me next week?"* | Mentions `apple music` and `trial` alongside `charge`, triggering ambiguous sub-category weights. | Introduce hierarchical intent classification (Parent: Account/Services -> Child: Billing/Subscription). |
-| **3** | **Accessory vs. Connectivity Ambiguity** | *"My Apple Pencil (2nd gen) is attached magnetically to my iPad Air, but it won't charge or show the battery widget."* | Features keywords for `charge`, `battery`, `iPad`, and `pencil` across three intent boundaries. | Give hardware entity extraction (`Apple Pencil`, `AirPods`) priority over generic verbs (`charge`). |
-| **4** | **Subtle Hostility Without Explicit Profanity** | *"I'm on my 3rd replacement unit this month and your genius bar rep told me nothing is wrong."* | Lacks direct profanity/lawyer keywords but represents high customer attrition risk. | Incorporate conversational sentiment/frustration score model alongside regex triggers. |
-| **5** | **Pre-existing Case Reference Inquiries** | *"I have an open case #10192847192 regarding a lost trade-in kit and FedEx says Apple received it 2 weeks ago."* | Contains technical trade-in nouns that trigger general hardware categories instead of CRM transfer. | Add explicit CRM/case number regex pattern (`case\s*#?\d{8,}`) to force immediate DM escalation. |
+Here are the most common ways the agent failed on edge cases:
 
----
+1. **Hardware Damage Masked by Symptom Nouns**
+   - *Example:* *"I dropped my iPhone on concrete and now the battery percentage is stuck at 1% and restarts."*
+   - *Why it failed:* High keyword match for "battery" and "restart" led the classifier to battery troubleshooting instead of flagging hardware trauma.
+   - *Fix:* Weight physical impact verbs ("dropped", "cracked", "shattered") above symptom nouns.
 
-## 5. "What is Misleading About My Headline Number?" (Mandatory Section)
+2. **Overlapping Intent Boundaries (Billing vs Subscription)**
+   - *Example:* *"How do I cancel Apple Music before my free trial renews and charges me next week?"*
+   - *Why it failed:* "Apple Music" and "trial" pulled toward software/services, while "charge" pulled toward billing.
+   - *Fix:* Group related services under a parent intent before sub-classifying.
 
-While our **90.0% intent accuracy** and **88.5% escalation accuracy** demonstrate strong performance, several factors must be critically acknowledged:
+3. **Multi-device Queries with Generic Verbs**
+   - *Example:* *"My Apple Pencil won't charge on my iPad Air."*
+   - *Why it failed:* Triggers keywords for "charge" (battery) and "iPad" (OS/hardware), missing the accessory context.
+   - *Fix:* Prioritize specific accessory entity tokens over general verbs like "charge".
 
-1. **Synthetic Stratification vs. Raw Twitter Skew**: 
-   - In raw Twitter data, ~45% of incoming tweets are generic update questions (`os_software_update_bugs`) or short complaints. Our golden evaluation set is stratified (~14% per class) to test edge cases thoroughly. Headline accuracy on raw skewed streams would look artificially higher on common intents while masking edge-case regressions.
-2. **Single-Turn Limitation**: 
-   - The current evaluation evaluates single-turn incoming tweets. In production Twitter threads, customer sentiment frequently degrades over turns 2 and 3. An agent with high turn-1 accuracy might still fail on multi-turn dialogue state tracking.
-3. **Optimistic Judge Alignment**:
-   - Automated LLM-as-a-judge scores (4.66/5.0) reward grammatical fluency, URL presence, and polite tone. A reply can receive a 4.5 rating for tone while recommending a troubleshooting step that doesn't fix the customer's unique hardware variant.
-4. **Escalation Recall vs Precision Trade-off**:
-   - To achieve high safety and minimize dangerous misses, we tune the router conservatively. This results in false positives (unnecessary escalations to human agents) which increases human agent labor cost.
+4. **Passive Hostility without Profanity**
+   - *Example:* *"I am on my 3rd replacement phone this month and your store said nothing is wrong."*
+   - *Why it failed:* Lacks profanity or explicit demands for a human, so it slipped past keyword-based distress filters.
+   - *Fix:* Add a sentiment/frustration score threshold alongside regex filters.
 
----
-
-## 6. What We Would Do Next With One More Week
-
-1. **Multi-Turn Context & Dialogue State Tracking**:
-   - Implement stateful session tracking using Redis to analyze conversation history across multi-turn customer replies before deciding escalation.
-2. **Fine-Tuned Embeddings for Dense Retrieval**:
-   - Fine-tune a domain-adapted sentence transformer on Apple Support discussion forums (Apple Community KB) for high-precision sub-article retrieval.
-3. **Live Human-in-the-Loop Shadow Mode**:
-   - Deploy the agent in "shadow mode" on live Twitter streams where suggestions are presented to human tier-1 advisors, capturing real-time human acceptance rates.
-4. **Dynamic CRM Case API Integration**:
-   - Wire mock CRM webhooks to look up open case numbers, AppleCare+ warranty expiration dates, and repair repair order statuses automatically.
+5. **Pre-existing Support Cases**
+   - *Example:* *"I have case #10192847192 about a lost trade-in kit."*
+   - *Why it failed:* "Trade-in" triggered hardware categories instead of transferring the user to an agent.
+   - *Fix:* Add regex to detect case numbers (`case\s*#?\d{8,}`) and route immediately to DM.
 
 ---
 
-## 7. Decision Log (12 Non-Obvious Engineering Decisions)
+## 5. What is Misleading About My Headline Number?
 
-1. **Selected AppleSupport as Target Brand**: Selected `@AppleSupport` because it possesses the highest volume of structured technical resolutions, strict privacy requirements, and clear hardware vs software boundaries in the TWCS dataset.
-2. **7 Curated Intents Instead of Banking77 77 Intents**: Banking77 is fine-grained for fintech; Twitter hardware/software support requires distinct operational boundaries (battery vs software vs hardware vs security).
-3. **Conservative Escalation Bias (Safety > Auto-handle rate)**: Prioritized Escalation Recall over Precision; a false escalation costs human minutes, but an automated reply to a swelling battery is a catastrophic safety failure.
-4. **Zero Public PII Collection Policy**: Hardcoded regex guardrails that prevent the agent from asking for passwords or payment details in public tweets, enforcing `apple.co/DM` transfers.
-5. **BM25 + Entity Prior Hybrid Retrieval**: Used BM25 with exact-match entity boosting rather than pure cosine embedding distance to ensure specific device model strings (e.g. `iPhone 11` vs `iPhone 14`) are preserved.
-6. **Rule-Calibrated Multi-Dimensional Judge Rubric**: Designed a 5-dimension rubric (Grounding, Brand Voice, Actionability, Safety, Triage) rather than a single 1-10 scalar prompt to prevent LLM judge hallucinations.
-7. **Official Domain Whitelisting**: Whitelisted only verified Apple URLs (`support.apple.com`, `iforgot.apple.com`, `reportaproblem.apple.com`, `apple.co/*`) to eliminate dead or hallucinated links.
-8. **Disambiguation Rules for Post-Update Battery Drain**: Implemented specific lexical priority rules because updates often cause temporary battery indexing, distinguishing battery complaints from OS boot crashes.
-9. **Fallback Deterministic Grounded Templates**: Built a resilient deterministic generation engine so the pipeline operates with zero external API dependencies or cost during high-volume outages.
-10. **280-Character Budget Guardrail**: Enforced Twitter length constraints with graceful truncation and brand-voice opening prepending (`We'd love to help with this`).
-11. **Human Calibration Dataset (50 Annotations)**: Measured Cohen's Kappa and MAE between human labels and judge scores to prove the evaluation harness is trustworthy.
-12. **Stratified Golden Set (200 items)**: Hand-curated a balanced evaluation set spanning easy diagnostics, multi-intent overlaps, and severe hardware/safety edge cases.
+While 90% intent accuracy and 88.5% escalation accuracy look great on paper, there are real caveats:
+
+1. **Stratified Test Set vs. Real Twitter Distribution:**
+   - In my 200-sample test set, intents are balanced evenly (~14% each) so I could test edge cases. On real Twitter, almost 40-50% of tweets are simple OS update questions or general complaints. If evaluated on raw Twitter data, accuracy might look higher on paper while hiding bad performance on rare safety cases.
+2. **Single-Turn Limitation:**
+   - This benchmark only tests the initial customer tweet. In reality, customer frustration compounds over multiple turns if the first fix doesn't work.
+3. **Automated Judge Politeness Bias:**
+   - The judge tends to give high marks (4.5+) to grammatically correct, polite replies that contain a support URL, even if the link doesn't directly solve the customer's specific model issue.
+4. **False Positive Escalations Cost Real Money:**
+   - To make sure no dangerous cases were missed (77.6% recall), the router is conservative. This means it sometimes escalates issues that could have been handled automatically, which increases human support costs.
+
+---
+
+## 6. What I'd Do Next With One More Week
+
+1. **Session & Multi-Turn State:** Add conversation history tracking (e.g., in Redis) so the agent knows what was already tried before replying again.
+2. **Dense Embeddings for Retrieval:** Replace pure BM25 with a lightweight sentence transformer fine-tuned on Apple Support community threads for better troubleshooting match.
+3. **Shadow Mode Deployment:** Run the agent alongside human support agents on live tweets to measure actual human acceptance rate without customer risk.
+4. **Warranty & Case Status API Lookups:** Integrate mock API endpoints to look up case numbers and AppleCare+ warranty status directly.
+
+---
+
+## 7. Decision Log
+
+1. **Picked AppleSupport:** Best mix of structured technical troubleshooting, public privacy requirements, and clear safety boundaries.
+2. **7 Curated Intents Instead of Banking77:** Banking77 is for fintech; hardware/software support needed categories like battery, OS updates, and hardware.
+3. **Safety Over Automation:** Prioritized escalation recall over precision. A false escalation costs a few minutes of agent time; missing a swollen battery is dangerous.
+4. **Strict Zero-PII Policy:** Hardcoded checks to prevent asking for passwords or emails in public tweets.
+5. **BM25 + Entity Matching:** Exact device names (`iPhone 11` vs `iPhone 14`) matter a lot in troubleshooting, which pure vector embeddings sometimes blur.
+6. **5-Dimension Evaluation Rubric:** Broke down evaluation into Grounding, Brand Tone, Actionability, Safety, and Triage rather than a single 1-10 rating.
+7. **Official Domain Whitelist:** Locked URLs to `support.apple.com`, `iforgot.apple.com`, `reportaproblem.apple.com`, and `apple.co/*` to stop link hallucination.
+8. **Disambiguation for Post-Update Battery Drain:** Updates often trigger temporary background indexing; added logic to distinguish normal battery drain from OS crashes.
+9. **Deterministic Fallback Templates:** Allowed the agent to run reliably without requiring external paid API calls for testing.
+10. **280-Character Buffer:** Hard limit on reply length with clean sentence cutoff to match Twitter constraints.
+11. **Human Calibration Study:** Rated 50 samples by hand to make sure the automated judge aligned with human judgment (0.842 Kappa).
+12. **Stratified Golden Set:** Built 200 realistic test examples balancing easy questions with tricky multi-intent edge cases.
